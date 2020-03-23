@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Layout from './core/Layout'
+import {Link} from 'react-router-dom'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <Layout>
+      <div className='col-md-6 offset-md-3 text-center'>
+        <h1 className="p-5">React Node Mongo DB Authentication Boilerplate</h1>
+        <h2>MERN stack</h2>
+        <h3>Created by  J. David Roman Aguirre</h3>
+        <hr/>
+        <p className='lead'>MERN stack login register system with account activation,
+        login with Facebook and google as well as private and protected routes for authenticated user and users
+        with role of admin, reset password etc..
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <hr/>
+        <a href='https://github.com/davidroman-hub'> Click Here if you want to see  more of my work</a> <i className='fab fa-github pr-2'></i>
+      </div>
+    </Layout>
+  )
 }
 
 export default App;
