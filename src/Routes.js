@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 //Routes
@@ -17,7 +17,12 @@ import Forgot from './auth/Forgot'
 import Reset from './auth/Reset'
 
 const Routes = () => {
+
+
+
 return (
+
+
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={App}/>

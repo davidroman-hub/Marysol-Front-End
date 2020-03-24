@@ -2,7 +2,7 @@ import React,{Fragment} from 'react';
 import {Link, withRouter} from 'react-router-dom'
 import {isAuth, signout} from '../auth/helpers'
 import Logo from './logo12.png'
-
+import './Layout.scss'
 
 
 const Layout = ({children,match,history}) => {
@@ -13,7 +13,7 @@ const isActive = path => {
     if(match.path === path) {
         return {color:'#ff9900'}
     } else{
-        return {color:'#000'}
+        return {color:'#fff'}
     }
 };
 
