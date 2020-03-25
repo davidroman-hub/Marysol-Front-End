@@ -1,0 +1,382 @@
+*{
+    //universal selector 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.content{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+font-family: 'Open Sans', sans-serif;
+font-size: 16px;
+//font-size: 16px;
+//background-color: black;
+}
+
+p{
+margin-bottom: 30px;
+}
+
+.regular-text{
+font-weight: 400;
+font-family:'Pacifico', cursive ; 
+}
+
+/////// Header ///////////
+
+.header-content{
+    width: 100%;
+    height: 100vh;
+    //color: #fff;
+    background:black;
+    background-image: url(./img/wallpaperbetter.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed; // we can move while the photo its static
+    box-shadow: inset 0 0 100px 150px rgba(0,0,0,.8);// shadow inside around the page
+
+
+///position static photo///
+
+position: relative;;
+top:0;// change for the navbar
+left: 0;
+
+//flex box
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+
+z-index: 1;
+
+}
+
+.header-text{
+color: #fff;
+}
+
+.header-text .icon{
+font-size: 45px;
+}
+
+.header-text .title{
+font-weight: 700;
+font-size: 50px;
+animation: blue-neon 2s infinite alternate;
+}
+
+.header-text .orange-neon-title,
+.header-text .icon{
+
+margin: 0;
+font-size: 60px;
+animation: orange-neon 2s infinite alternate;
+
+
+} 
+ @media(max-width: 769px){
+    .header-text .orange-neon-title
+      {
+      font-size: 40px;
+      
+    }
+    .header-text .description{
+
+        margin-top: 40px;
+        font-size: 15px;
+        
+
+    }
+    .header-text .title{
+        font-size: 35px;
+    }
+    .header-text .icon{
+        font-size: 50px;
+    }
+    .btn-link{
+        font-size: 20px;
+    }
+}
+
+.header-text .description{
+
+margin-top: 40px;
+font-size: 20px;
+
+
+}
+
+.description::first-line {
+font-size: 32px;
+font-weight: 700;
+margin-bottom: 10px;
+}
+
+.btn-link{
+display: inline-block;
+padding: 15px 30px;
+border: 6px dotted #d79e5b;
+border-radius: 60px;
+color: #fff;
+text-decoration: none;
+font-size: 25px;
+//  text-transform: uppercase;
+text-shadow:
+ 0 -1px 4px #fff,
+ 2px 2px 10px #ff0,
+ 2px -2px 20px #ff8000;
+ transition: .5s ease;
+}
+
+.btn-link:hover{
+text-shadow: none;
+border: 6px dotted rgba(255,255,255,.5)
+}
+/////////  MAIN //////////
+
+main{
+color: #fff;
+width: 100%;
+height: 100vh;
+z-index: 100;
+position: relative;
+margin-top: 100vh;
+font-size: 18px;
+// background: black;
+
+}
+
+main .container { 
+padding: 50px 0;
+width: 90%;
+max-width: 1000px;
+margin: auto;
+}
+
+main .h2-subtitle{
+margin-bottom: 50px;
+padding: 0;
+font-size: 40px;
+text-align: center;////
+font-family:'Pacifico', cursive ;
+color:#d79e5b ;
+
+}
+
+// main .h2-subtitle, main .capital-letter{
+// text-shadow: 0 0 15px rgba(255,255,255,.5),
+
+// 0 0 10px rgba(255,255,255,.5)
+// }
+
+main .capital-letter {
+font-size: 55px;
+font-family: serif;
+margin-right: 5px;
+line-height: 15px;
+}
+
+
+
+/// Animation ///
+
+@keyframes blue-neon {
+// 0%{
+//      color: yellow;
+//     }
+// 50%{
+//     color: brown;
+// }
+
+// 100% {
+//        color: blue;
+//    }
+/// simple keyframe///
+
+0%,10%,15%,20%,30%,35%,40%,50%,55%,60%,70%,75%,80%,85%,90%,100%{
+text-shadow: 
+ 9px 9px 18px #3485ff,
+ 3px 3px 5px #00246c,
+-3px -3px 5px #00246c,
+-9px -9px 27px #3485ff;
+}
+
+// 10%,15%, 60%{
+// text-shadow: none;
+// }
+
+
+}
+
+@keyframes orange-neon {
+
+
+0%,100%{
+    text-shadow: 
+     0px -1px 4px #ffff,
+     0px -2px 18px #ff0,
+    -0px -10px 20px #ff8000,
+   
+}
+
+// 10%,15%, 60%{
+//     text-shadow: none;
+// }
+
+
+
+}
+
+
+.molesto{
+    color: blue;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.spacer{
+    margin-bottom: 100px;
+}
+.footer-nav{
+    margin:0;
+    padding: 0;
+}
+
+.React,.Node, .Sass {
+   // font-size: 14px;
+}
+
+
+
+.Skills-icon{
+//     color: #d79e5b;
+//     width: auto;
+//     float: left;
+//     width: 100%;
+//     height:200px;
+//    // border-right: 1px solid #d79e5b;
+ //    display: flex;
+//     flex-direction: initial;
+//     align-items: center;
+//     justify-content: center;
+//     text-align: center;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+border-top: 2px solid white;
+border-bottom: 2px solid white;    
+
+
+
+.React {
+   // border: 4px solid red;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+    border-radius: 100px;
+
+}
+
+.React img {
+    height: 200px;
+    width: 250px;
+    }
+.Node img {
+     height: 200px;
+     width: 300px;
+
+    @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+            
+                height: 120px;
+                width: 200px;
+        }
+
+        }
+ .Mongo img {
+     height: 200px;
+     width: 200px;
+            }
+        
+.Node{
+    //border: 4px solid red;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    border-radius: 100px;
+}
+
+.Mongo{
+   // border: 4px solid red;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    border-radius: 100px;
+}
+
+.Sass img {
+    width: 200px;
+    height: 200px;
+    //  height: 200px;
+    //  width: 300px;
+
+    @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+            
+                height: 140px;
+                width: 200px;
+        }
+}
+
+
+
+.info2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Pacifico', cursive ;
+    padding: 30px;
+    color:#d79e5b ;
+    font-weight: .5px;
+    font-size: 50px;
+
+}
+
+
+}
+
+
+.Hobbies-icon {
+display: flex;
+//flex-direction: row;
+
+justify-content: center;
+flex-wrap: wrap;
+border-top: 2px solid white;
+border-bottom: 2px solid white;
+
+@media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+    //flex-wrap: wrap; // <-- para acomodar los items en una lina o en varias (bajar iconos)
+   //flex-direction: column;
+    }    
+}
+
+.H-icons img{
+    margin-top: 20px;
+    width: 80px;
+    height: 80px;
+}

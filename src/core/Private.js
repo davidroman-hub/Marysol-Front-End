@@ -6,6 +6,10 @@ import {isAuth, getCookie, signout, updateUser} from '../auth/helpers'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
+window.addEventListener('scroll', () => {
+    const header = document.getElementById('header-content');
+      header.style.opacity = false})
+
 
 const Private = ({history}) => {
     const [values, setValues] = useState({
@@ -86,7 +90,7 @@ const loadProfile = () => {
     const updateForm = () => (
         <form>
 
-            <div className="form-group">
+            <div className="form-group" id="header-content">
                 <label className="text-muted">Role</label>
                 <input  defaultValue={role} type="text" className="form-control" disabled />
             </div>

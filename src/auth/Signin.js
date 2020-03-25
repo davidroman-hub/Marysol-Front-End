@@ -8,6 +8,10 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import Google from './Google'
 import Facebook from './Facebook'
 
+window.addEventListener('scroll', () => {
+    const header = document.getElementById('header-content');
+      header.style.opacity = false})
+  
 
 const Signin = ({history}) => {
     const [values, setValues] = useState({
@@ -26,7 +30,7 @@ const Signin = ({history}) => {
     const informParent = response => {
        
         authenticate(response, () => {
-            isAuth() && isAuth().role === 'admin' ? history.push('/admin') : history.push('/private')
+            isAuth() && isAuth().role === 'admin' ? history.push('/admin') : history.push('/dashboard')
           });
     }
 
@@ -44,7 +48,7 @@ const Signin = ({history}) => {
               authenticate(response, () => {
                 setValues({ ...values, name: '', email: '', password: '', buttonText: 'Submitted' });
                 //toast.success(`Hey ${response.data.user.name}, Welcome back!`);
-                isAuth() && isAuth().role === 'admin' ? history.push('/admin') : history.push('/private')
+                isAuth() && isAuth().role === 'admin' ? history.push('/admin') : history.push('/dashboard')
               });
                
             })
@@ -58,7 +62,7 @@ const Signin = ({history}) => {
     const signinForm = () => (
         <form>
 
-            <div className="form-group">
+            <div className="form-group" id="header-content" >
                 <label className="text-muted">Email</label>
                 <input onChange={handleChange('email')} value={email} type="email" className="form-control" />
             </div>

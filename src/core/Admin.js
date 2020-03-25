@@ -86,7 +86,7 @@ const loadProfile = () => {
     const updateForm = () => (
         <form>
 
-            <div className="form-group">
+            <div className="form-group" id="header-content">
                 <label className="text-muted">Role</label>
                 <input  defaultValue={role} type="text" className="form-control" disabled />
             </div>

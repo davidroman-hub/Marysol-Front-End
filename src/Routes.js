@@ -9,6 +9,7 @@ import Private from './core/Private'
 import PrivateRoute from './auth/privateRoute'
 import Admin from './core/Admin'
 import AdminRoute from './auth/adminRoute'
+import Dashboard from './user/userDashboard'
 //Auth
 import Signup from './auth/Signup'
 import Signin from './auth/Signin'
@@ -30,6 +31,7 @@ return (
                 <Route exact path="/signin" component={Signin}/>
                 <Route exact path="/auth/activate/:token" component={Activate}/>
                 <PrivateRoute exact path="/private" component={Private}/>
+                <PrivateRoute exact path="/dashboard" component={Dashboard}/>
                 <AdminRoute exact path="/admin" component={Admin}/>
                 <Route exact path="/auth/password/forgot" component={Forgot}/>
                 <Route exact path="/auth/password/reset/:token" component={Reset}/>

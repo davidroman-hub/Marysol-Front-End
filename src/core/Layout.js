@@ -57,11 +57,18 @@ const isActive = path => {
 
                 {isAuth () && isAuth().role === 'subscriber'  && (
 
-                <li className="nav-item">
-                    <Link className="nav-link" style={isActive('/private')} to="/private">
-                        {isAuth().name}
-                        </Link>    
-                </li>    
+                        // <li className="nav-item">
+                        //     <Link className="nav-link" style={isActive('/private')} to="/private">
+                        //         {isAuth().name}
+                        //         </Link>    
+                        // </li>
+                        
+                        <li className="nav-item">
+                            <Link className="nav-link" style={isActive('/dashboard')} to="/dashboard">
+                                {isAuth().name}
+                            </Link>    
+                        </li>     
+                
                 )}
               
 
