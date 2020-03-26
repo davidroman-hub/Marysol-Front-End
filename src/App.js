@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 // Photos
 
-import slider1 from './slider1.jpg'
+import logo1 from './img/logo1.png'
 import slider2 from './slider2.jpg'
 import slider3 from './slider3.jpg'
 
@@ -25,15 +25,13 @@ const Home = () => {
   return (
     <Fragment>
                 <header className="header-content" id="header-content">
-                <p className="description">
+                    <div className="header-text">   
+                      <p className='Logo1'>
+                        <img alt='Logo1' height="300px" src={logo1}/>
+                      </p>
+                      <p className="description">
                           Más información desplazandose hacia abajo
                         </p>
-                    <div className="header-text">   
-                    <span className="orange-neon-title regular-text">Mar y Sol</span>
-                        <h1 className="title">
-                            Restaurante
-                            <br/>  <br/>       
-                        </h1>
                     </div>
                 </header>
                  <main>
@@ -144,7 +142,7 @@ const CarouselMyS = () => (
         </ol>
         <div className='carousel-inner'>
             <div className='carousel-item active'>
-            <img className='tres' src={slider1} class="d-block w-100" alt="slider 1"/>
+            <img className='tres' src={slider2} class="d-block w-100" alt="slider 1"/>
                 <div className="carousel-caption d-none d-md-block">
                 <h5 id="resultados">Almejas Vivas</h5>
                      <p id="resultados">Solo para paladares exigentes</p>

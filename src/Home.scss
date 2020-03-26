@@ -13,7 +13,7 @@
 }
 
 body{
-font-family: 'Open Sans', sans-serif;
+font-family: 'Open Sans Condensed', sans-serif;
 font-size: 16px;
 //font-size: 16px;
 //background-color: black;
@@ -33,9 +33,10 @@ font-family:'Pacifico', cursive ;
 .header-content{
     width: 100%;
     height: 100vh;
+    
     //color: #fff;
     background:black;
-    background-image: url(./img/wallpaperbetter.jpg);
+    background-image: url(./img/mariscos.jpg);
     background-size: cover;
     background-position: center; 
     background-attachment: fixed; // we can move while the photo its static
@@ -59,6 +60,12 @@ text-align: center;
 z-index: 1;
 
 }
+
+.container{
+    max-width: 2120px
+}
+
+
 
 .header-text{
 color: #fff;
@@ -276,7 +283,21 @@ align-items: center;
 border-top: 2px solid white;
 border-bottom: 2px solid white;    
 
-
+.Logo1 {
+    // border: 4px solid red;
+     width: 200px;
+     height: 200px;
+     display: flex;
+     justify-content: center;
+     padding-bottom: 15px;
+     border-radius: 100px;
+ 
+ }
+ 
+ .Logo1 img {
+     height: 200px;
+     width: 250px;
+     }
 
 .React {
    // border: 4px solid red;
