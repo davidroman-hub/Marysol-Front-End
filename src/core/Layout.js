@@ -64,7 +64,7 @@ const isActive = path => {
                         // </li>
                         
                         <li className="nav-item">
-                            <Link className="nav-link" style={isActive('/dashboard')} to="/dashboard">
+                            <Link className="nav-link" style={isActive('/user/dashboard')} to="/user/dashboard">
                                 {isAuth().name}
                             </Link>    
                         </li>     

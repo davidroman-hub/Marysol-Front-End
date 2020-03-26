@@ -30,7 +30,7 @@ const Signin = ({history}) => {
     const informParent = response => {
        
         authenticate(response, () => {
-            isAuth() && isAuth().role === 'admin' ? history.push('/admin') : history.push('/dashboard')
+            isAuth() && isAuth().role === 'admin' ? history.push('/admin') : history.push('/user/dashboard')
           });
     }
 
@@ -48,7 +48,7 @@ const Signin = ({history}) => {
               authenticate(response, () => {
                 setValues({ ...values, name: '', email: '', password: '', buttonText: 'Submitted' });
                 //toast.success(`Hey ${response.data.user.name}, Welcome back!`);
-                isAuth() && isAuth().role === 'admin' ? history.push('/admin') : history.push('/dashboard')
+                isAuth() && isAuth().role === 'admin' ? history.push('/admin') : history.push('/user/dashboard')
               });
                
             })

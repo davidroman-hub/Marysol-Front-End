@@ -30,8 +30,8 @@ return (
                 <Route exact path="/signup" component={Signup}/>
                 <Route exact path="/signin" component={Signin}/>
                 <Route exact path="/auth/activate/:token" component={Activate}/>
-                <PrivateRoute exact path="/private" component={Private}/>
-                <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+                <PrivateRoute exact path="/user/private" component={Private}/>
+                <PrivateRoute exact path="/user/dashboard" component={Dashboard}/>
                 <AdminRoute exact path="/admin" component={Admin}/>
                 <Route exact path="/auth/password/forgot" component={Forgot}/>
                 <Route exact path="/auth/password/reset/:token" component={Reset}/>

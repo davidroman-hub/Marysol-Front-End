@@ -16,6 +16,7 @@ const Private = ({history}) => {
         role:'',
         name: '',
         email: '',
+        phone:'',
         password: '',
         buttonText: 'Update'
     });
@@ -38,8 +39,8 @@ const loadProfile = () => {
     })
     .then(response=>{
         console.log('profile update', response) //<-- populate state
-        const {role, name , email} = response.data
-        setValues({...values, role, name, email})
+        const {role, name ,phone, email} = response.data
+        setValues({...values, role, name,phone,email})
     })
     .catch(error => {
         console.log('PRofile update error', error.response.data.error)
@@ -53,7 +54,7 @@ const loadProfile = () => {
 
 
 
-    const { role, name, email, password, buttonText } = values;
+    const { role, name, email, phone ,password, buttonText } = values;
 
     const handleChange = name => event => {
         // console.log(event.target.value);
@@ -71,7 +72,7 @@ const loadProfile = () => {
             headers:{
                 Authorization:`Bearer ${token}`,
             },
-            data: {name,password}
+            data: {name,phone,password}
         })
             .then(response => {
                 console.log('PROFILE USER UPDATE SUCCESS', response);
@@ -103,6 +104,11 @@ const loadProfile = () => {
             <div className="form-group">
                 <label className="text-muted">Email</label>
                 <input  defaultValue={email} type="email" className="form-control"  disabled/>
+            </div>
+           
+            <div className="form-group">
+                <label className="text-muted">Phone</label>
+                <input onChange={handleChange('phone')} value={phone} type="text" className="form-control" />
             </div>
 
             <div className="form-group">
