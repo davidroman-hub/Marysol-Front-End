@@ -13,8 +13,8 @@
 }
 
 body{
-font-family: 'Open Sans Condensed', sans-serif;
-font-size: 16px;
+font-family: 'PT Serif', serif;
+font-size: 14px;
 //font-size: 16px;
 //background-color: black;
 }
@@ -60,6 +60,24 @@ text-align: center;
 z-index: 1;
 
 }
+
+/////////////// banner container /////////////
+
+.banner-container{
+    width: 100%;
+    height: 50vh;
+    filter: grayscale(35%);
+    //color: #fff;
+    background:black;
+    background-image: url(./img/banner.jpg);
+    background-size: cover;
+    //background-position: center; 
+   // background-attachment: fixed; // we can move while the photo its static
+
+}
+
+
+//////////////////////////////////////////
 
 .container{
     max-width: 2120px
@@ -148,10 +166,13 @@ text-shadow:
 text-shadow: none;
 border: 6px dotted rgba(255,255,255,.5)
 }
+
+
+
 /////////  MAIN //////////
 
 main{
-color: #fff;
+color: #000;
 width: 100%;
 height: 100vh;
 z-index: 100;
@@ -174,16 +195,10 @@ margin-bottom: 50px;
 padding: 0;
 font-size: 40px;
 text-align: center;////
-font-family:'Pacifico', cursive ;
+font-family: 'Open Sans Condensed', sans-serif;
 color:#d79e5b ;
 
 }
-
-// main .h2-subtitle, main .capital-letter{
-// text-shadow: 0 0 15px rgba(255,255,255,.5),
-
-// 0 0 10px rgba(255,255,255,.5)
-// }
 
 main .capital-letter {
 font-size: 55px;
@@ -194,61 +209,36 @@ line-height: 15px;
 
 
 
-/// Animation ///
+//////// About us seccion ////////
 
-@keyframes blue-neon {
-// 0%{
-//      color: yellow;
-//     }
-// 50%{
-//     color: brown;
-// }
+.About-container{
+    display: flex;
 
-// 100% {
-//        color: blue;
-//    }
-/// simple keyframe///
+    // justify-content: center;
+    // align-items: center;
+    // flex-wrap: wrap;
+     @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+              margin-top: 20px;
+              flex-direction: column;
+             
+        }
 
-0%,10%,15%,20%,30%,35%,40%,50%,55%,60%,70%,75%,80%,85%,90%,100%{
-text-shadow: 
- 9px 9px 18px #3485ff,
- 3px 3px 5px #00246c,
--3px -3px 5px #00246c,
--9px -9px 27px #3485ff;
+    .about-us-des{
+        
+        margin-left: 30px;
+        
+    }
+    .about-us img{
+        height: 250px;
+        margin-left: none;
+        @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+            height: 200px;
+      }
+    }
+    
 }
 
-// 10%,15%, 60%{
-// text-shadow: none;
-// }
-
-
-}
-
-@keyframes orange-neon {
-
-
-0%,100%{
-    text-shadow: 
-     0px -1px 4px #ffff,
-     0px -2px 18px #ff0,
-    -0px -10px 20px #ff8000,
-   
-}
-
-// 10%,15%, 60%{
-//     text-shadow: none;
-// }
-
-
-
-}
-
-
-.molesto{
-    color: blue;
-    margin-top: 40px;
-    width: 100%;
-}
+//////////////////////////////////////
 
 .spacer{
     margin-bottom: 100px;
@@ -265,17 +255,6 @@ text-shadow:
 
 
 .Skills-icon{
-//     color: #d79e5b;
-//     width: auto;
-//     float: left;
-//     width: 100%;
-//     height:200px;
-//    // border-right: 1px solid #d79e5b;
- //    display: flex;
-//     flex-direction: initial;
-//     align-items: center;
-//     justify-content: center;
-//     text-align: center;
 
 display: flex;
 flex-direction: column;
@@ -369,7 +348,7 @@ border-bottom: 2px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family:'Pacifico', cursive ;
+    font-family: 'Open Sans Condensed', sans-serif;
     padding: 30px;
     color:#d79e5b ;
     font-weight: .5px;
@@ -400,4 +379,11 @@ border-bottom: 2px solid white;
     margin-top: 20px;
     width: 80px;
     height: 80px;
+}
+
+
+.arrow {
+ 
+    font-family: 'PT Serif', serif;
+    font-size: 14px;
 }
