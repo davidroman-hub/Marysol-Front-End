@@ -22,8 +22,6 @@ const Routes = () => {
 
 
 return (
-
-
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={App}/>

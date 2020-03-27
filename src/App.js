@@ -1,7 +1,7 @@
 import React,{Fragment} from 'react';
 import Layout from './core/Layout'
 import {Link} from 'react-router-dom'
-
+import Map from './GoogleMap'
 // Photos
 
 import logo1 from './img/logo1.png'
@@ -38,6 +38,7 @@ const Home = () => {
                       </p>
                     </div>
                 </header>
+
                  <main>
                     <section className="container">
                         <hr/>
@@ -50,31 +51,45 @@ const Home = () => {
                             </div>
                             <hr/>
                             <div className="about-us-des">
-                              <span className="capital-letter">M</span>y name is David Roman Aguirre<br/> - I'm a web developer and Aquaculture Engineer. <br/>
-                                - I completed my JS Fullstack program from BEDU Tech (Mexico City) in November 2019
+                              <br/>
+                              <span className="capital-letter">M</span>ar y Sol<br/> 
+                              Un nuevo concepto que hemos diseñado minuciosamente, para entregarle a nuestros clientes
+                              la mejor calidad en productos provenientes del fruto del mar.
                               </div>
-                          </div>
+                        </div>
+                        <br/>
+                        <br/>
                         <hr/>
+                                  {/* banner Start*/}   
                           <div className="banner-container">
                             <hr/>
-                              <div className="card text-center border-info mr-5 ml-5 mb-5">
+                              <div className="card text-center  mr-5 ml-5 mb-5">
                                 <div className="card-body">
                                     <h4 className="card-title">El auténtico sabor Jarocho</h4>
                                   
-                                    <p className="card-text">Traemos el sabor del mar a tu paladar, con las especialidades del
-                                      Puerto de veracruz, como son: El Vuelve a la vida, Tostadas de Pulpo ..
+                                    <p className="card-text">Traemos el sabor de la cocina Veracruzana a tu paladar, con las especialidades del
+                                      Puerto de Veracruz, como son: El Vuelve a la vida, Tostadas de Pulpo, arroz a la tumbada entre otros..
                                     </p>
+                                    <hr/>
+                                    <Link to='/menu' className="btn btn-dark">Menu</Link>
                                 </div>
                               </div>
                             </div>
-                        
-                        
-                                  
-                    </section>
-                </main>
-
-                
-          
+                                  {/* banner finished*/}       
+                            <br/>
+                            <hr/>
+                              <h2>Ubicación</h2>
+                         
+                            <div className="about-us">
+                             <Map/>
+                            </div>
+                            <hr/>
+                            <div className="about-us">
+                              <Link to="https://github.com"> yo</Link>
+                              </div>
+                      
+                      </section>
+                </main>    
             </Fragment>
   )
 }
@@ -133,6 +148,7 @@ const CarouselMyS = () => (
     </main> */}
 )
 
+//const mapUrl = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_MAP_KEY}` 
 
 
 
@@ -141,7 +157,9 @@ const App = () => {
   return (
     <Layout>
       {Home()}
+    
     </Layout>
+    
   )
 }
 

@@ -233,9 +233,18 @@ line-height: 15px;
         margin-left: none;
         @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
             height: 200px;
+           
       }
+      
     }
     
+}
+
+.card-text{
+    @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+        font-size: 10px;
+       
+  }
 }
 
 //////////////////////////////////////
