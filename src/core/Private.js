@@ -18,7 +18,7 @@ const Private = ({history}) => {
         email: '',
         phone:'',
         password: '',
-        buttonText: 'Update'
+        buttonText: 'Actualizar'
     });
 
 const token = getCookie('token') //<-- we need this for send the token and populate
@@ -97,22 +97,22 @@ const loadProfile = () => {
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Name</label>
-                <input onChange={handleChange('name')} value={name} type="text" className="form-control" />
+                <label className="text-muted">Nombre:</label>
+                <input onChange={handleChange('name')} value={name} type="text" className="form-control"  disabled/>
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Email</label>
+                <label className="text-muted">E-mail:</label>
                 <input  defaultValue={email} type="email" className="form-control"  disabled/>
             </div>
            
             <div className="form-group">
-                <label className="text-muted">Phone</label>
+                <label className="text-muted">Telefono:</label>
                 <input onChange={handleChange('phone')} value={phone} type="text" className="form-control" />
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Password</label>
+                <label className="text-muted">Contraseña</label>
                 <input onChange={handleChange('password')} value={password} type="password" className="form-control" />
             </div>
 
@@ -128,8 +128,7 @@ const loadProfile = () => {
         <Layout>
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
-                <h1 className="p-5 text-center">Profile Update</h1>
-                <p className="p-5 text-center">Private page auth user</p>
+                <h1 className="p-5 text-center">Actualización de mis datos</h1>
                 {updateForm()}
             </div>
         </Layout>

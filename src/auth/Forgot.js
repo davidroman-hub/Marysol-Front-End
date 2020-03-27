@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 const Forgot = ({history}) => {
     const [values, setValues] = useState({
         email: '',
-        buttonText: 'Request password reset link'
+        buttonText: 'Recuperar'
     });
 
     const { email, buttonText } = values;
@@ -43,8 +43,8 @@ const Forgot = ({history}) => {
         <form>
 
             <div className="form-group">
-                <label className="text-muted">Email</label>
-                <input onChange={handleChange('email')} value={email} type="email" className="form-control"  placeholder='Type your E-mail to recover your password'/>
+                <label className="text-muted">E-mail</label>
+                <input onChange={handleChange('email')} value={email} type="email" className="form-control"  placeholder='Escribe tu E-mail para recuperar tu contraseña'/>
             </div>
 
             <div>
@@ -60,7 +60,7 @@ const Forgot = ({history}) => {
             {/* {JSON.stringify(isAuth())} // the information of the local storage */}
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
-                <h1 className="p-5 text-center">Forgot password</h1>
+                <h1 className="p-5 text-center">Recuperación de contraseña</h1> 
                
                 {passwordForgotForm()}
             </div>

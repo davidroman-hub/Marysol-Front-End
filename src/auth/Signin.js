@@ -17,7 +17,7 @@ const Signin = ({history}) => {
     const [values, setValues] = useState({
         email: '',
         password: '',
-        buttonText: 'Submit'
+        buttonText: 'Enviar'
     });
 
     const { email, password, buttonText } = values;
@@ -36,7 +36,7 @@ const Signin = ({history}) => {
 
     const clickSubmit = event => {
         event.preventDefault();
-        setValues({ ...values, buttonText: 'Submitting' });
+        setValues({ ...values, buttonText: 'Enviando' });
         axios({
             method: 'POST',
             url: `${process.env.REACT_APP_API}/signin`,
@@ -63,12 +63,12 @@ const Signin = ({history}) => {
         <form>
 
             <div className="form-group" id="header-content" >
-                <label className="text-muted">Email</label>
+                <label className="text-muted">E-mail</label>
                 <input onChange={handleChange('email')} value={email} type="email" className="form-control" />
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Password</label>
+                <label className="text-muted">Contraseña</label>
                 <input onChange={handleChange('password')} value={password} type="password" className="form-control" />
             </div>
 
@@ -87,13 +87,13 @@ const Signin = ({history}) => {
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
                 {isAuth() ? <Redirect to='/'/> : null}
-                <h1 className="p-5 text-center">Signin</h1>
+                <h1 className="p-5 text-center">Inicia Sesión</h1>
                 <Google informParent={informParent}/>
                 <Facebook informParent={informParent}/>
                 {signinForm()}
                 <hr/>
                 <div>
-                     <Link className='text-muted' to='/auth/password/forgot' >Forgot password?</Link>
+                     <Link className='text-muted' to='/auth/password/forgot' >Olvidaste tu contraseña?</Link>
                 </div>
             </div>
         </Layout>

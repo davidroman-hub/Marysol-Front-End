@@ -5,13 +5,16 @@ import axios from 'axios';
 import {isAuth} from './helpers'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import Google from './Google'
+import Facebook from './Facebook'
+
 
 const Signup = () => {
     const [values, setValues] = useState({
         name: '',
         email: '',
         password: '',
-        buttonText: 'Submit'
+        buttonText: 'Enviar'
     });
 
     const { name, email, password, buttonText } = values;
@@ -23,7 +26,7 @@ const Signup = () => {
 
     const clickSubmit = event => {
         event.preventDefault();
-        setValues({ ...values, buttonText: 'Submitting' });
+        setValues({ ...values, buttonText: 'Enviando' });
         axios({
             method: 'POST',
             url: `${process.env.REACT_APP_API}/signup`,
@@ -44,17 +47,17 @@ const Signup = () => {
     const signupForm = () => (
         <form>
             <div className="form-group">
-                <label className="text-muted">Name</label>
+                <label className="text-muted">Nombre</label>
                 <input onChange={handleChange('name')} value={name} type="text" className="form-control" />
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Email</label>
+                <label className="text-muted">E-mail</label>
                 <input onChange={handleChange('email')} value={email} type="email" className="form-control" />
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Password</label>
+                <label className="text-muted">Contraseña</label>
                 <input onChange={handleChange('password')} value={password} type="password" className="form-control" />
             </div>
 
@@ -71,11 +74,11 @@ const Signup = () => {
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
                 {isAuth() ? <Redirect to='/'/> : null}
-                <h1 className="p-5 text-center">Signup</h1>
+                <h1 className="p-5 text-center">Registro</h1>
                 {signupForm()}
                 <hr/>
                 <div>
-                     <Link className='text-muted' to='/signin' >Do you have account?</Link>
+                     <Link className='text-muted' to='/signin' >Ya tienes cuenta?</Link>
                 </div>
             </div>
         </Layout>

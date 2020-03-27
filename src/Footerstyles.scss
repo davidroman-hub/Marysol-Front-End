@@ -1,0 +1,59 @@
+
+ .social{
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//position: absolute;
+width: auto;
+text-align: center;
+
+
+   a {
+       display: inline-block;
+       width: 50px;
+       height: 50px;
+       background-color: #f1f1f1;
+       margin: 10px;
+       border-radius: 20px;
+       box-shadow: 0 5px 15px -5px #00000070;
+       color: black;
+       overflow: hidden;
+       position: relative;
+       line-height: 50px;// para centrar
+       font-size: 25px; //tam;o del logo
+       
+   }
+   @media(max-width:769px){
+       a {
+        width: 65px;
+        height: 65px;
+        line-height: 65px;
+        font-size: 30px;
+
+       }
+   }
+
+   i  {
+    transition: 0.1s linear;
+    }
+
+    i:hover  {
+       transform: scale(1.3);
+       color: #d79e5b ;
+   }
+
+
+
+//   i::before {
+//     content: '';
+//     position: absolute;
+//     width: 120%;
+//     height: 120%;
+//     background: #3498db;
+//     transform: rotate(45deg);
+//     left: -110%;
+//     top: 90%;
+//   }
+
+
+}

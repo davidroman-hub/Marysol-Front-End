@@ -2,6 +2,8 @@ import React,{Fragment} from 'react';
 import Layout from './core/Layout'
 import {Link} from 'react-router-dom'
 import Map from './GoogleMap'
+import Footer from './Footer'
+
 // Photos
 
 import logo1 from './img/logo1.png'
@@ -10,7 +12,7 @@ import slider3 from './img/tostadaP.jpg'
 import slider2 from './img/salmon.jpg'
 import slider1 from './img/paella.jpg'
 import banner from './img/banner.jpg'
-
+import service from './img/servicio.jpg'
 
 //styles
 import './App.scss'
@@ -76,18 +78,38 @@ const Home = () => {
                               </div>
                             </div>
                                   {/* banner finished*/}       
+                                  <br/>
+                                  <br/>
+                                  <hr/>
+                                  <h1 className=" h2-subtitle">
+                               Que es este nuevo concepto?
+                                </h1>
+                                <div className="About-container">
+                                    <div className="about-concept">
+                                      <img alt='excelente servicio' height="177px" src={service}/>
+                                    </div>
+                                    <hr/>
+                                    <div className="about-us-des">
+                                      <br/>
+                                      <span className="capital-letter">M</span>ar y Sol<br/> 
+                                        no es solo una página ordinaria donde podrás ver nuestro Menu, es una plataforma entera, con la cual podrás registrate
+                                        y ordenar productos desde la comodidad de tu hogar con entrega a domicilio en un radio de 5km a la redonda, podras hacer reservaciones Vía telefónica.
+                                        Te invitamos a que te registres para conocer las características de nuestra plataforma.
+                                        <br />
+                                        <Link to="/signin">Registrate</Link>
+                                      </div>                
+                                </div>
+                                  
                             <br/>
                             <hr/>
-                              <h2>Ubicación</h2>
-                         
-                            <div className="about-us">
+                            
+                              <h2 className='text-center'>Ubicación</h2>
+                              <p className='text-center'> Atzayacatl 79, Tlaxpana, Miguel Hidalgo, 11370 Ciudad de México, CDMX</p>
+                            <div className="Map-ps">
                              <Map/>
                             </div>
                             <hr/>
-                            <div className="about-us">
-                              <Link to="https://github.com"> yo</Link>
-                              </div>
-                      
+                            <Footer/>
                       </section>
                 </main>    
             </Fragment>
