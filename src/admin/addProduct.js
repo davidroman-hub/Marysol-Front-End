@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import Layout from '../core/Layout'
 import {getCookie} from '../auth/helpers'
 import {Link} from 'react-router-dom'
-import { createProduct } from './apiAdmin'
+import { createProduct, getCategories } from './apiAdmin'
 
 
 window.addEventListener('scroll', () => {
@@ -57,8 +57,24 @@ const {
 
 } = values;
 
+
+//load categories from the database
+const init = () => {
+    getCategories().then( data => {
+        if (data.error){
+            setValues({...values, error: data.error})
+        }else{
+            setValues({...values,categories:data, formData: new FormData()})
+        }
+    }) 
+}
+
+
+
+
 useEffect(() => { 
-    setValues({...values, formData: new FormData()}); //<-- thats why we used here
+    //setValues({...values, formData: new FormData()}); //<-- thats why we used here
+init();
 }, [])
 
 
@@ -150,8 +166,12 @@ const newPostForm = () => {
                                 onChange={handleChange('category')} 
                                 className='form-control' 
                                 >
-                                <option value='5e7a386d8bc1bb05f89edbe4'>pescados</option>
-                                <option value='5e7a295b6190951da4c955f2'>Cockteles</option>     
+                                <option>Por favor selecciona</option>
+                                    {categories && categories.map((c, i) => 
+                                    (<option key={i} 
+                                        value={c._id} > {c.name} 
+                                </option>))}
+                               
                             </select>
                     </div>
 
@@ -178,7 +198,7 @@ const newPostForm = () => {
                             />
                     </div>
                     
-                    <button > Create Product </button>
+                    <button className='btn btn-primary' > Crear Producto </button>
                     </form>
             </form>
            )
