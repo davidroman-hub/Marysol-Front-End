@@ -80,7 +80,7 @@ const loadProfile = () => {
                 <Link to='/admin/update'>Actualizar mi información</Link>
             </li>
             <li className='list-group-item'>
-                <Link to='/admin/create-category'>Crear una nueva categoria</Link>
+                <Link to='/create/category'>Crear una nueva categoria</Link>
             </li>
             <li className='list-group-item'>
                 <Link to='/admin/create-product'>Crear un nuevo producto</Link>

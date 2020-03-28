@@ -19,7 +19,7 @@ import Reset from './auth/Reset'
 import Admin from './core/Admin'
 import AdminRoute from './auth/adminRoute'
 import AdminDashboard from './admin/adminDashboard'
-
+import AddCategory from './admin/addCategory'
 
 
 
@@ -46,6 +46,7 @@ return (
                 {/* //Admin Routes/// */}
                 <AdminRoute exact path="/admin/update" component={Admin}/>
                 <AdminRoute exact path="/admin/dashboard" component={AdminDashboard}/>
+                <AdminRoute exact path="/create/category" component={AddCategory}/>
             </Switch>
         </BrowserRouter>
     )
