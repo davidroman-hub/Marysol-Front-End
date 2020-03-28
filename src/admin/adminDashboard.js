@@ -4,12 +4,14 @@ import Layout from '../core/Layout'
 import {isAuth, getCookie, signout} from '../auth/helpers'
 import axios from 'axios';
 
+
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header-content');
       header.style.opacity = false})
 
 
-const Dashboard = ({history}) =>{
+
+const AdminDashboard = ({history}) =>{
 
     const [values, setValues] = useState({
         role:'',
@@ -56,12 +58,12 @@ const loadProfile = () => {
     const { role, name, phone ,email} = values;
 
     return (
-        <Layout title='Dashboard' description=' User Dashboard' className='container' >
-        <div className=' card mb-5' id="header-content">
+        <Layout title='Dashboard' description=' Admin Dashboard' className='container'>
+        <div className=' card mb-5' id="header-content" >
             <h3 className='card-header'>Información del Usuario</h3>
             <ul className='list-group'>
                 <li className='list-group-item'>
-                    hola!{name}
+                    hola! Administrador :{name}
                 </li>
                 <li className='list-group-item'>
                     E-mail:{email}
@@ -73,9 +75,17 @@ const loadProfile = () => {
         </div>
 
         <div className='card mb-5'>
+            <h3 className='card-header'>Enlaces de administrador</h3>
             <li className='list-group-item'>
-                <Link to='/user/private'>Actualizar mi información</Link>
+                <Link to='/admin/update'>Actualizar mi información</Link>
             </li>
+            <li className='list-group-item'>
+                <Link to='/admin/create-category'>Crear una nueva categoria</Link>
+            </li>
+            <li className='list-group-item'>
+                <Link to='/admin/create-product'>Crear un nuevo producto</Link>
+            </li>
+
         </div>
 
       
@@ -92,4 +102,4 @@ const loadProfile = () => {
     )
 }
 
-export default Dashboard
+export default AdminDashboard

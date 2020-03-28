@@ -12,8 +12,9 @@ const Admin = ({history}) => {
         role:'',
         name: '',
         email: '',
+        phone:'',
         password: '',
-        buttonText: 'Update'
+        buttonText: 'Actualizar'
     });
 
 const token = getCookie('token') //<-- we need this for send the token and populate
@@ -34,8 +35,8 @@ const loadProfile = () => {
     })
     .then(response=>{
         console.log('profile update', response) //<-- populate state
-        const {role, name , email} = response.data
-        setValues({...values, role, name, email})
+        const {role, name ,phone, email} = response.data
+        setValues({...values, role, name,phone,email})
     })
     .catch(error => {
         console.log('PRofile update error', error.response.data.error)
@@ -49,7 +50,7 @@ const loadProfile = () => {
 
 
 
-    const { role, name, email, password, buttonText } = values;
+    const { role, name, email, phone ,password, buttonText } = values;
 
     const handleChange = name => event => {
         // console.log(event.target.value);
@@ -63,11 +64,11 @@ const loadProfile = () => {
         setValues({ ...values, buttonText: 'Submitting' });
         axios({
             method: 'PUT',
-            url: `${process.env.REACT_APP_API}/admin/update`,
+            url: `${process.env.REACT_APP_API}/user/update`,
             headers:{
                 Authorization:`Bearer ${token}`,
             },
-            data: {name,password}
+            data: {name,phone,password}
         })
             .then(response => {
                 console.log('PROFILE USER UPDATE SUCCESS', response);
@@ -92,17 +93,22 @@ const loadProfile = () => {
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Name</label>
+                <label className="text-muted">Nombre:</label>
                 <input onChange={handleChange('name')} value={name} type="text" className="form-control" />
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Email</label>
+                <label className="text-muted">E-mail:</label>
                 <input  defaultValue={email} type="email" className="form-control"  disabled/>
+            </div>
+           
+            <div className="form-group">
+                <label className="text-muted">Telefono:</label>
+                <input onChange={handleChange('phone')} value={phone} type="text" className="form-control" />
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Password</label>
+                <label className="text-muted">Contraseña</label>
                 <input onChange={handleChange('password')} value={password} type="password" className="form-control" />
             </div>
 
@@ -118,13 +124,13 @@ const loadProfile = () => {
         <Layout>
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
-                <h1 className="p-5 text-center">Admin Update</h1>
-                <p className="p-5 text-center">Admin page auth user</p>
+                <h1 className="p-5 text-center">Actualización de mis datos</h1>
                 {updateForm()}
             </div>
         </Layout>
     );
 };
+
 
 
 
