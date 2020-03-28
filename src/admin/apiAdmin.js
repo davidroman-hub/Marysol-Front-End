@@ -25,10 +25,8 @@ export const createCategory = (userId, token, category) => {
 
 }
 
-
-/// Method to create a product 
-
 //Method to create a new product
+
 
 export const createProduct = (userId, token, product) => {
 
@@ -36,7 +34,7 @@ export const createProduct = (userId, token, product) => {
         method:"POST",
         headers:{
             Accept: "application/json",
-            "Content-Type":"application/json",
+            // "Content-Type":"application/json",
             Authorization:`Bearer ${token}`
         },
         body: product
@@ -49,4 +47,4 @@ export const createProduct = (userId, token, product) => {
         console.log(err)
     })
 
-} 
+}

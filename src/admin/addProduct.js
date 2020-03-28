@@ -69,7 +69,26 @@ const handleChange = name => event => {
 }
 
 const clickSubmit= (event) => { 
-    //
+    event.preventDefault()
+console.log(values)
+  setValues({...values, error:'', loading: true}) 
+  createProduct(user._id, token, formData)
+  .then(data => { 
+      if(data.error) { 
+          setValues({...values, error:data.error})
+      } else {
+          setValues({
+              ...values, 
+              name:'', //<-- this name
+              description:'',
+              photo:'',
+              price:'',
+              quantity:'',
+              loading:false,
+              createdProduct:data.name //we need the name 
+          })
+      }
+  })
 }
 
 
@@ -92,7 +111,7 @@ const newPostForm = () => {
             </label>
         </div>
 
-                <form className='mb-3' onSubmit={clickSubmit}>
+        <form className='mb-3' onSubmit={clickSubmit}>
                     <div className='form-group'>
                         <label className='text-muted'> </label>
                             <input 
@@ -131,7 +150,8 @@ const newPostForm = () => {
                                 onChange={handleChange('category')} 
                                 className='form-control' 
                                 >
-                                <option value='5e7a295b6190951da4c955f2'>Cockteles</option>   
+                                <option value='5e7a386d8bc1bb05f89edbe4'>pescados</option>
+                                <option value='5e7a295b6190951da4c955f2'>Cockteles</option>     
                             </select>
                     </div>
 
