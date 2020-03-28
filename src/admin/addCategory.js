@@ -1,7 +1,7 @@
 
 import React,{useState} from 'react'
 import Layout from '../core/Layout'
-import {getCookie} from '../auth/helpers'
+import {getCookie,isAuth} from '../auth/helpers'
 import {Link} from 'react-router-dom'
 import{createCategory} from './apiAdmin'
 import { ToastContainer, toast } from 'react-toastify';
@@ -106,7 +106,7 @@ return (
     <Layout >
         <div className='row'>
             <div className='col-md-8 offset-md-2' >
-                <h1 className="p-5 text-center">{user.name}Listo para crear una categoria?</h1>
+                <h1 className="p-5 text-center">Hola!! {isAuth().name}. Listo para crear una categoria?</h1>
 
                 {newCategoryForm()}
                 {showError()}

@@ -24,3 +24,29 @@ export const createCategory = (userId, token, category) => {
     })
 
 }
+
+
+/// Method to create a product 
+
+//Method to create a new product
+
+export const createProduct = (userId, token, product) => {
+
+    return fetch(`${API}/product/create/${isAuth()._id}`,{
+        method:"POST",
+        headers:{
+            Accept: "application/json",
+            "Content-Type":"application/json",
+            Authorization:`Bearer ${token}`
+        },
+        body: product
+    })
+
+    .then(response => {
+        return response.json(); 
+    })
+    .catch( err => { 
+        console.log(err)
+    })
+
+} 
