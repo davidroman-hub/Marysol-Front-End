@@ -72,6 +72,19 @@ export const isAuth = () =>{
     }
 }
 
+export const isAuths = () => { 
+
+    if (typeof window == 'undefined') { 
+        return false
+    }
+
+    if(localStorage.getItem('jwt')) { 
+        return JSON.parse(localStorage.getItem('jwt'))
+    } else { 
+        return false
+    }
+}
+
 export const signout = next => {
     removeCookie('token')
     removeLocalStorage('user')
