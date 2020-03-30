@@ -23,7 +23,7 @@ const Menu = () => {
  
   const [limit, setLimit] = useState(6)
   const [skip, setSkip] = useState(0) 
-  const [filteredResults, setFilteredResults] = useState(0)
+  const [filteredResults, setFilteredResults] = useState([])
 
   const loadFilteredResults = (newFilters) => { 
     // console.log(newFilters)
@@ -31,7 +31,7 @@ const Menu = () => {
      if(data.error){
          setError(data.error)
      } else {
-         setFilteredResults(data)
+         setFilteredResults(data.data)
       }
   })
  };
@@ -99,7 +99,7 @@ const handleFilters = (filters, filterBy) => {
           {/* <div className='row'>
           {JSON.stringify(categories)}
           </div> */}
-          <div className='shop-container ml-3' id='header-content'>
+          <div className='shop-container ml-3' >
               <div className='CategorisF'>
                 <h4>Filtrar Por Categorias</h4>
                 <Checkbox categories={categories}
@@ -117,15 +117,26 @@ const handleFilters = (filters, filterBy) => {
                    />
                  </div>
               <div>
-             {JSON.stringify(myFilters)}
-             {JSON.stringify(filteredResults)}
+                <hr/>
+               
+                  <h2 className="mb-4">Nuestro Menu</h2>
+                  <div className="row">
+                  {filteredResults.map((product,i)=>(
+                     <div key={i} >
+                          <Card  product={product}/>
+                      </div>   
+                    
+                 ))}
+                  </div>
+                </div>
+                  {/* {JSON.stringify(myFilters)} */}
+                  {/* {JSON.stringify(filteredResults)} */}
+                  
               </div>
-          </div>
+      
           
-
+          <div id='header-content' />
         </Layout>
-    )
-}
-
+    )}
 
 export default Menu 
