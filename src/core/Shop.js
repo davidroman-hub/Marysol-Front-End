@@ -2,8 +2,9 @@
 import React, {useEffect,useState} from 'react';
 import Layout from './Layout'
 import { getCategories} from './apiCore'
-import Card from '../admin/Card'
 
+import Card from '../admin/Card'
+import Checkbox from './Checkbox'
 
 const Menu = () => {
  
@@ -28,9 +29,20 @@ useEffect(()=>{
   return (
         <Layout title="Shop Page" description="Search and find books of your choice" 
             className='container-fluid'>
-          <div className='row'>
+          {/* <div className='row'>
           {JSON.stringify(categories)}
+          </div> */}
+          <div className='shop-container'>
+              <div className='CategorisF'>
+                <h4>Filtrar Por Categorias</h4>
+                <Checkbox categories={categories}/>
+              </div>
+              <hr/>
+              <div>
+                products...
+              </div>
           </div>
+          
 
         </Layout>
     )
