@@ -25,13 +25,13 @@ export const prices = [
         array: [160, 199]
     },
     {
-        _id:4,
+        _id:5,
         name: '$200 a $259',
         array: [200, 259]
     },
     
     {
-        _id:5,
+        _id:6,
         name: 'Mas de 260' ,
         array: [260, 500]
     }
