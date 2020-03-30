@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-
+import './Layout.scss'
 
 // we have to send categories props
 
@@ -28,8 +28,8 @@ const Checkbox = ({categories, handleFilters}) => {
 
 
     return categories.map((c, i)=> (
-        <li key={i} className='list-unstyled'>
-            <input onChange={handleToggle(c._id)} value={checked.indexOf(c._id === -1)} type='checkbox' className='form-check-input'/>
+        <li key={i} className='custom-control custom-checkbox'>
+            <input onChange={handleToggle(c._id)} value={checked.indexOf(c._id === -1)} type='radio' className='form-check-input'/>
             <label className='form-check-label'>{c.name}</label>
         </li>
     ))

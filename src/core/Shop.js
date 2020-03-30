@@ -99,27 +99,36 @@ const handleFilters = (filters, filterBy) => {
           {/* <div className='row'>
           {JSON.stringify(categories)}
           </div> */}
-          <div className='shop-container ml-3' >
-              <div className='CategorisF'>
-                <h4>Filtrar Por Categorias</h4>
-                <Checkbox categories={categories}
-                handleFilters={ filters => 
-                  handleFilters(filters,'category')}
-                />
-              </div>
-                 <hr/>
-                 <div className="PricesF">
-                   <h4>Filtrar por precios</h4>
-                   <RadioBox 
-                   prices={prices}
-                   handleFilters={filters=> 
-                    handleFilters(filters,'price')}
-                   />
-                 </div>
-              <div>
+          <div className="shop-container">
+          <h1 className="mb-4 text-center">Nuestro Menu</h1>
+
+         <div className="About-shop-container">
+                            <div className="about-us">
+                            <h4>Filtrar Por Categorias</h4>
+                            <Checkbox categories={categories}
+                                  handleFilters={ filters => 
+                                    handleFilters(filters,'category')}
+                                  />
+                            </div>
+                            <hr/>
+                       
+                            <div className="shop-us-des">
+                            <h4>Filtrar por precios</h4> 
+                                          <RadioBox 
+                                 className='box'         
+                                prices={prices}
+                                handleFilters={filters=> 
+                                  handleFilters(filters,'price')}
+                                /> 
+                              </div>
+                        </div>
+
+
+
+         
                 <hr/>
-               
-                  <h2 className="mb-4">Nuestro Menu</h2>
+              <div className="menu-coin">
+                
                   <div className="row">
                   {filteredResults.map((product,i)=>(
                      <div key={i} >
@@ -129,10 +138,10 @@ const handleFilters = (filters, filterBy) => {
                  ))}
                   </div>
                 </div>
+                </div>
                   {/* {JSON.stringify(myFilters)} */}
                   {/* {JSON.stringify(filteredResults)} */}
-                  
-              </div>
+     
       
           
           <div id='header-content' />
