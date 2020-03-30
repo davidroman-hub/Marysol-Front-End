@@ -1,9 +1,9 @@
-import React,{Fragment} from 'react';
+import React,{Fragment, useEffect, useState} from 'react';
 import Layout from './core/Layout'
 import {Link} from 'react-router-dom'
 import Map from './GoogleMap'
 import Footer from './Footer'
-
+import {getProducts} from '../src/admin/apiAdmin'
 // Photos
 
 import logo1 from './img/logo1.png'
@@ -27,6 +27,49 @@ window.addEventListener('scroll', () => {
 
 
 const Home = () => {
+
+  // get the products method for sell and arrival
+
+  // const [productsBySell, setProductsBySell] = useState([]);
+  // const [productsByArrival, setProductsByArrival] = useState([]);
+  // const [error, setError] = useState(false)
+
+  const [productsBySell, setProductsBySell] = useState([])
+  const [productsByArrival, setProductsByArrival] = useState([])
+  const [error, setError] = useState(false)   
+ 
+ 
+
+  const loadProductBySell = () => {
+    getProducts('sold').then(
+      data =>{
+        if (data.error) {
+          setError(data.error)
+        } else {
+          setProductsBySell(data)
+        }
+      })
+  }
+
+  const loadProductByArrival = () => {
+    getProducts('createdAt').then(
+      data => {
+        if (data.error){
+          setError(data.error)
+        } else {
+          setProductsByArrival(data)
+        }
+      })
+  }
+
+useEffect(()=>{
+  loadProductByArrival();
+  loadProductBySell()
+},[])
+
+
+
+
   return (
     <Fragment>
     
@@ -109,6 +152,10 @@ const Home = () => {
                              <Map/>
                             </div>
                             <hr/>
+                            {JSON.stringify(productsBySell)}
+                            <hr/>
+                            {JSON.stringify(productsBySell)}
+                            <hr/>
                             <Footer/>
                       </section>
                 </main>    
@@ -179,6 +226,7 @@ const App = () => {
   return (
     <Layout>
       {Home()}
+      <hr/>
     
     </Layout>
     
