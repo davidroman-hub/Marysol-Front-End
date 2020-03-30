@@ -3,12 +3,12 @@ import React, {useState,useEffect} from 'react';
 
 // we have to send categories props
 
-const Checkbox = ({categories}) => {
+const Checkbox = ({categories, handleFilters}) => {
 
     //For the handle categories toggle we need a state
 
         const [checked, setCheked] = useState([])
-        // we need to check if the categoris is alredy "checked"
+        // we need to check if the categories is alredy "checked"
         const handleToggle = c => () => {
             const currentCategoryId = checked.indexOf(c) // return the first index or -1// and this will tell us if is alredy there
             const newCheckedCategoryId = [...checked] // <-- will gave us all the categories ids in the state
@@ -19,8 +19,9 @@ const Checkbox = ({categories}) => {
             } else{
                 newCheckedCategoryId.splice(currentCategoryId, 1)
             }
-            console.log(newCheckedCategoryId)
-            setCheked(newCheckedCategoryId)
+            console.log(newCheckedCategoryId);
+            setCheked(newCheckedCategoryId);
+            handleFilters(newCheckedCategoryId);
 }
 
 

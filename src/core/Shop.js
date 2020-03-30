@@ -26,6 +26,11 @@ useEffect(()=>{
 },[])
 
 
+const handleFilters = (filters, filterBy) => {
+  console.log('shop', filters, filterBy)
+}
+
+
   return (
         <Layout title="Shop Page" description="Search and find books of your choice" 
             className='container-fluid'>
@@ -35,7 +40,10 @@ useEffect(()=>{
           <div className='shop-container ml-3'>
               <div className='CategorisF'>
                 <h4>Filtrar Por Categorias</h4>
-                <Checkbox categories={categories}/>
+                <Checkbox categories={categories}
+                handleFilters={ filters => 
+                  handleFilters(filters,'categories')}
+                />
               </div>
                  <hr/>
               <div>
