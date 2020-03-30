@@ -5,6 +5,8 @@ import { getCategories} from './apiCore'
 
 import Card from '../admin/Card'
 import Checkbox from './Checkbox'
+import RadioBox from './RadioBox'
+import {prices} from './FixedPrices'
 
 const Menu = () => {
  
@@ -53,6 +55,14 @@ const handleFilters = (filters, filterBy) => {
                 />
               </div>
                  <hr/>
+                 <div className="PricesF">
+                   <h4>Filtrar por precios</h4>
+                   <RadioBox 
+                   prices={prices}
+                   handleFilters={filters=> 
+                    handleFilters(filters,'price')}
+                   />
+                 </div>
               <div>
              {JSON.stringify(myFilters)}
               </div>
