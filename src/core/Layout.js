@@ -34,6 +34,9 @@ const isActive = path => {
                             Nosotros
                         </Link>
                     </li>
+                        
+                 
+                  
 
                 {!isAuth () && (
                     <Fragment>
@@ -85,6 +88,18 @@ const isActive = path => {
                         </li>                 
                       
                 )}
+                  <li className='icon'> 
+                        <Link className="nav-link fas fa-utensils icon" 
+                            style={isActive('/menu')} 
+                            to="/menu">{""}
+                        
+                            <sup>
+                                <small className="cart-cadge">
+                                {/* {itemTotal()} */}
+                                </small>
+                            </sup>              
+                        </Link>
+                    </li>
                     </div>
                 </div>
         </ul>

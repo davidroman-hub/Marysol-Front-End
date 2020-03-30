@@ -2,12 +2,13 @@ import React,{useEffect,useState} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 //Routes
-import App from './App'
+
 
 //Private
 import Private from './core/Private'
 import PrivateRoute from './auth/privateRoute'
 import Dashboard from './user/userDashboard'
+
 //Auth
 import Signup from './auth/Signup'
 import Signin from './auth/Signin'
@@ -22,6 +23,10 @@ import AdminDashboard from './admin/adminDashboard'
 import AddCategory from './admin/addCategory'
 import AddProduct from './admin/addProduct'
 
+//public
+
+import Menu from './core/Shop'
+import App from './App'
 
 const Routes = () => {
 
@@ -38,6 +43,8 @@ return (
                 <Route exact path="/auth/password/forgot" component={Forgot}/>
                 <Route exact path="/auth/password/reset/:token" component={Reset}/>
                 <Route exact path="/auth/activate/:token" component={Activate}/>
+                <Route exact path="/menu" component={Menu}/>
+                
                 {/* /// User Routes// */}
 
                 <PrivateRoute exact path="/user/private" component={Private}/>
