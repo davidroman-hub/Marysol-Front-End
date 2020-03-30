@@ -9,7 +9,11 @@ import Checkbox from './Checkbox'
 const Menu = () => {
  
   const [categories, setCategories] = useState([])
-  const  [error, setError] =useState(false)
+  const [error, setError] =useState(false)
+  const [myFilters, setMyFilters] = useState({
+    filters:{ category:[], price:[] }
+  })
+
 
   const init = () => {
     getCategories().then( data => {
@@ -28,6 +32,9 @@ useEffect(()=>{
 
 const handleFilters = (filters, filterBy) => {
   console.log('shop', filters, filterBy)
+  const newFilters = {...myFilters}
+  newFilters.filters[filterBy] = filters
+  setMyFilters(newFilters)
 }
 
 
@@ -42,12 +49,12 @@ const handleFilters = (filters, filterBy) => {
                 <h4>Filtrar Por Categorias</h4>
                 <Checkbox categories={categories}
                 handleFilters={ filters => 
-                  handleFilters(filters,'categories')}
+                  handleFilters(filters,'category')}
                 />
               </div>
                  <hr/>
               <div>
-                products...
+             {JSON.stringify(myFilters)}
               </div>
           </div>
           
