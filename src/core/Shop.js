@@ -32,12 +32,12 @@ useEffect(()=>{
           {/* <div className='row'>
           {JSON.stringify(categories)}
           </div> */}
-          <div className='shop-container'>
+          <div className='shop-container ml-3'>
               <div className='CategorisF'>
                 <h4>Filtrar Por Categorias</h4>
                 <Checkbox categories={categories}/>
               </div>
-              <hr/>
+                 <hr/>
               <div>
                 products...
               </div>
