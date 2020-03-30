@@ -13,7 +13,7 @@ import slider2 from './img/salmon.jpg'
 import slider1 from './img/paella.jpg'
 import banner from './img/banner.jpg'
 import service from './img/servicio.jpg'
-
+import Card from './admin/Card'
 //styles
 import './App.scss'
 import './Home.scss'
@@ -152,11 +152,17 @@ useEffect(()=>{
                              <Map/>
                             </div>
                             <hr/>
-                            {JSON.stringify(productsBySell)}
+                            {/* {JSON.stringify(productsBySell)}
                             <hr/>
                             {JSON.stringify(productsBySell)}
-                            <hr/>
-                            <Footer/>
+                            <hr/> */}
+                              <h2 className="mb-4 text-center">Lo Más vendido</h2>
+                                  <div className='row'>
+                                      {productsBySell.map((products, i)=>(
+                                      <Card key={i} product={products}/>
+                                      ))}
+                                  </div>
+                             <Footer/>
                       </section>
                 </main>    
             </Fragment>
