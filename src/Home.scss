@@ -240,6 +240,13 @@ line-height: 15px;
     
 }
 
+.card-text{
+    @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+        font-size: 12px;
+       
+  }
+}
+
 /// shop styles ////
 
 
@@ -296,107 +303,7 @@ line-height: 15px;
 
 //////////////////////////////////////
 
-.spacer{
-    margin-bottom: 100px;
-}
-.footer-nav{
-    margin:0;
-    padding: 0;
-}
 
-.React,.Node, .Sass {
-   // font-size: 14px;
-}
-
-
-
-.Skills-icon{
-
-display: flex;
-flex-direction: column;
-align-items: center;
-border-top: 2px solid white;
-border-bottom: 2px solid white;    
-
-.Logo1 {
-    // border: 4px solid red;
-     width: 200px;
-     height: 200px;
-     display: flex;
-     justify-content: center;
-     padding-bottom: 15px;
-     border-radius: 100px;
- 
- }
- 
- .Logo1 img {
-     height: 200px;
-     width: 250px;
-     }
-
-.React {
-   // border: 4px solid red;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 15px;
-    border-radius: 100px;
-
-}
-
-.React img {
-    height: 200px;
-    width: 250px;
-    }
-.Node img {
-     height: 200px;
-     width: 300px;
-
-    @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
-            
-                height: 120px;
-                width: 200px;
-        }
-
-        }
- .Mongo img {
-     height: 200px;
-     width: 200px;
-            }
-        
-.Node{
-    //border: 4px solid red;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    border-radius: 100px;
-}
-
-.Mongo{
-   // border: 4px solid red;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    padding-top: 15px;
-    border-radius: 100px;
-}
-
-.Sass img {
-    width: 200px;
-    height: 200px;
-    //  height: 200px;
-    //  width: 300px;
-
-    @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
-            
-                height: 140px;
-                width: 200px;
-        }
-}
 
 
 
@@ -413,7 +320,7 @@ border-bottom: 2px solid white;
 }
 
 
-}
+
 
 
 .Hobbies-icon {

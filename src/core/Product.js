@@ -1,7 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import Layout from './Layout'
-import { read } from './apiCore'
+import { read , listRelated } from './apiCore'
 import Card1 from '../admin/Card1'
+import Card from '../admin/Card'
+import './Layout.scss'
+
+
 
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header-content');
@@ -17,9 +21,10 @@ const Product = (props) => {
 
     const [product, setProduct] = useState({})
     const [error, setError] = useState(false)
-
+    const[relatedProduct, setRelatedProduct] = useState([]) //<--- state for handling the related list 
 
     //4 
+ 
 
     const loadSingleProduct = productId =>{
         read(productId).then( data => {
@@ -27,6 +32,14 @@ const Product = (props) => {
                 setError(data.error)
             } else {
                 setProduct(data)
+                /// when we finish to fetch the product we need to fetch the related products as well
+                listRelated(data._id).then(data => {
+                    if(data.error){
+                        setError(data.error)
+                    } else {
+                        setRelatedProduct(data)
+                    }
+                })
             }
         })
     }
@@ -39,25 +52,35 @@ const Product = (props) => {
 
         loadSingleProduct(productId)
 
-    },[])
+    },[props])
 
     return (
         <Layout>
       
+                <div className="container-card-product">
+                <h3 className="text-center">{product.name}</h3>
+                            <div className="product-card">
+                               
+                            {
+                                product &&
+                                product.description &&
+                                <Card1 product={product} showViewProductButton={false}/>
+                            }
+                            </div>
+                            <hr/>
+                <h5 className='text-center'>Productos Relacionados</h5> 
+                            <div className="product-card-1">
+                           
+                            {relatedProduct.map((product, i)=>(
+                                <div className=' mb-3'>
+                                    <Card key={i} product={product}/>
+                                </div>
+                            ))}       
+                              </div>
+                </div>
 
-    <h2 className='mb-4 text-center'>{product.name}</h2>
-        {/* <h2 className='mb-4'>Single Product</h2> */}
-        
-        <div className='row'>
-            {/* {JSON.stringify(product)} */}
-            {/* {JSON.stringify(product)} */}
-            {
-                product &&
-                product.description &&
-                <Card1 product={product} showViewProductButton={false}/>
-            }
-        </div>
-
+            {/* {JSON.stringify(relatedProduct)} */}
+        <div id='header-content' />
         </Layout>
       
     )

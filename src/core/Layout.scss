@@ -9,6 +9,29 @@ li{
     filter: grayscale(20%);
 }
 
-////Check box styles ////
 
+
+
+.container-card-product{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center
+}
+
+.product-card{
+        
+    @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+        margin-right: 60px;
+  }
+    
+  
+}
+
+
+.product-card-1{
+    @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+        margin-right: 75px;
+  }
+}
 

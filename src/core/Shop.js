@@ -136,7 +136,7 @@ const handleFilters = (filters, filterBy) => {
           <div className="shop-container">
           <h1 className="mb-4 text-center">Nuestro Menu</h1>
 
-         <div className="About-shop-container">
+                        <div className="About-shop-container">
                             <div className="about-us">
                             <h4>Filtrar Por Categorias</h4>
                             <Checkbox categories={categories}
