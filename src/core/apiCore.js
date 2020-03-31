@@ -33,3 +33,15 @@ export const getFilteredProducts = (skip,limit, filters = {}) => {
             console.log(err);
         })
 }
+
+// the read method to get the product from the page and
+
+export const read = productId => {
+    return fetch(`${API}/product/${productId}`,{
+        method: "GET"
+    })
+    .then(response =>{
+        return response.json();
+    })
+    .catch(err => console.log(err));
+} 

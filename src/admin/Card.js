@@ -16,9 +16,11 @@ const Card = ({product}) => {
                 <h4 className="text-center">{product.name}</h4>
                 <p className="text-center">{product.description}</p>
                 <p className="text-center">${product.price}</p>
-                <button className="btn btn-dark ml-2 mb-2" >
-                    Descripción 
-                 </button>
+                <Link to={`/product/${product._id}`}>
+                    <button className="btn btn-dark ml-2 mb-2" >
+                        Descripción 
+                    </button>
+                 </Link>
                  <button className="btn btn-warning ml-2 mb-2">
                      Agregar a orden
                 </button>
