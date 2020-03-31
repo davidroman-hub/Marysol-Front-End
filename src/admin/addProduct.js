@@ -85,7 +85,7 @@ const handleChange = name => event => {
 }
 
 const clickSubmit= (event) => { 
-    event.preventDefault()
+event.preventDefault()
 console.log(values)
   setValues({...values, error:'', loading: true}) 
   createProduct(user._id, token, formData)
@@ -127,7 +127,7 @@ const newPostForm = () => {
             </label>
         </div>
 
-        <form className='mb-3' onSubmit={clickSubmit}>
+        <form className='mb-3'>
                     <div className='form-group'>
                         <label className='text-muted'> </label>
                             <input 
