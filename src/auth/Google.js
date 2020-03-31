@@ -34,7 +34,7 @@ const Google = ({informParent = f => f }) => {
             onFailure={responseGoogle}
             render={ renderProps =>(
              <button onClick={renderProps.onClick} disabled={renderProps.disabled} className='btn btn-danger btn-lg btn-block'>
-                <i className='fab fa-google pr-2'></i> Login with Google
+                <i className='fab fa-google pr-2'></i> Inicia sesión con Google
              </button>)}
             cookiePolicy={'single_host_origin'}
             />

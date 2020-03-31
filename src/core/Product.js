@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import Layout from './Layout'
 import { read } from './apiCore'
-import Card from '../admin/Card'
+import Card1 from '../admin/Card1'
 
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header-content');
@@ -42,17 +42,24 @@ const Product = (props) => {
     },[])
 
     return (
-        <Layout title='Product' 
-        description='product view'
-        className='container-fluid'
-        >
+        <Layout>
+      
 
-        <h2 className='mb-4'>Single Product</h2>
+    <h2 className='mb-4 text-center'>{product.name}</h2>
+        {/* <h2 className='mb-4'>Single Product</h2> */}
+        
         <div className='row'>
-            {JSON.stringify(product)}
+            {/* {JSON.stringify(product)} */}
+            {/* {JSON.stringify(product)} */}
+            {
+                product &&
+                product.description &&
+                <Card1 product={product} showViewProductButton={false}/>
+            }
         </div>
-        <div id='header-content'/>
+
         </Layout>
+      
     )
 }
 export default Product 

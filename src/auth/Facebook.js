@@ -33,7 +33,7 @@ const Facebook = ({informParent = f => f }) => {
             callback={responseFacebook}
             render={renderProps => (
                     <button onClick={renderProps.onClick} className="btn btn-primary btn-lg btn-block">
-                        <i className="fa fa-facebook pr-2"></i> Login with Facebook
+                        <i className="fa fa-facebook pr-2"></i> Inicia Sesión con Facebook
                     </button>
                 )}
           />
