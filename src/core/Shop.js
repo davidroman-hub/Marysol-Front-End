@@ -18,6 +18,7 @@ const Menu = () => {
  
   const [categories, setCategories] = useState([])
   const [error, setError] =useState(false)
+  const [size, setSize] = useState(0) //<--- for load more products
 
   /// state for fetch products
  
@@ -32,8 +33,10 @@ const Menu = () => {
          setError(data.error)
      } else {
          setFilteredResults(data.data)
-      }
-  })
+         setSize(data.size)
+         setSkip(0)
+        }
+    })
  };
 
  //////////////////////////////////////////////////////////////
@@ -57,6 +60,37 @@ useEffect(()=>{
   init();
   loadFilteredResults(skip,limit, myFilters.filters)
 },[])
+
+//// load more button////
+
+const loadMore = () => {
+  let toSkip = skip + limit//// remeber the skip is 0 but we gonna show 6 more
+
+  getFilteredProducts(toSkip, limit, myFilters.filters).then(
+  data => {
+    if (data.error){
+      setError(data.error)
+    } else {
+      setFilteredResults([...filteredResults,...data.data]);
+      setSize(data.size)
+      setSkip(toSkip)
+      }
+    }
+  )
+}
+
+const loadMoreButton = () => {
+  return(
+    size > 0 && size >= limit && (
+      <button onClick={loadMore}
+      className="btn btn-warning mb-5 ml-5">Ver Más</button>
+    )
+  )
+}
+
+
+////////////////////////
+
 
 const handlePrice = value => {
   const data = prices;
@@ -133,16 +167,17 @@ const handleFilters = (filters, filterBy) => {
                   {filteredResults.map((product,i)=>(
                      <div key={i} >
                           <Card  product={product}/>
-                      </div>   
-                    
+                      </div>                 
                  ))}
                   </div>
+                  <hr/>
+                  {loadMoreButton()}
                 </div>
                 </div>
                   {/* {JSON.stringify(myFilters)} */}
                   {/* {JSON.stringify(filteredResults)} */}
      
-      
+           
           
           <div id='header-content' />
         </Layout>
