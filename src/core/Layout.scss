@@ -20,7 +20,7 @@ li{
 }
 
 .product-card{
-        
+        margin-right:70px;
     @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
         margin-right: 60px;
   }
@@ -30,8 +30,17 @@ li{
 
 
 .product-card-1{
+
+    margin-right: 100px;
     @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
         margin-right: 75px;
   }
 }
 
+.cart-badge, .cart-badge:hover{
+    border-radius: 50% ;
+    padding:3px;
+    font-size:12px;
+    /* font-style: italic; */
+    background:#e73c7e
+}

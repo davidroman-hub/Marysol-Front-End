@@ -1,15 +1,30 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React,{useState, useEffect} from 'react'
+import {Link,Redirect} from 'react-router-dom'
 import photo from './img_avatar.png'
 import './Card.scss'
 import ShowImage from '../ShowImage'
-
+import {addItem} from '../core/CartHelpers'
 
 const Card = ({product}) => {
+
+    const [ redirect, setRedirect] = useState(false)
+
+    const addToCart = () => {
+        addItem(product, setRedirect(true))
+    }
+
+    const shouldRedirect = redirect => {
+        if (redirect){
+            return <Redirect to='/cart'/>
+        }
+    }
+
+
 
     return (
         <div className="card1">
             {/* <img src={photo} alt="avatar" style={{width:"100%"}} /> */}
+            {shouldRedirect(redirect)}
             <ShowImage item={product} url='product' />
        
             <div className="card-container">
@@ -22,11 +37,12 @@ const Card = ({product}) => {
                         Descripción 
                     </button>
                  </Link>
-                 <button className="btn btn-warning ml-2 mb-2">
+                 <button onClick={addToCart} className="btn btn-warning ml-2 mb-2">
                      Agregar a orden
                 </button>
                 <p/>
                 {showStock(product.quantity)}
+                
             </div>
         </div>
     )

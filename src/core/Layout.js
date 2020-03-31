@@ -1,6 +1,7 @@
 import React,{Fragment} from 'react';
 import {Link, withRouter} from 'react-router-dom'
 import {isAuth, signout} from '../auth/helpers'
+import {itemTotal} from '../core/CartHelpers'
 import Logo from './logo12.png'
 import './Layout.scss'
 
@@ -32,6 +33,12 @@ const isActive = path => {
                         <Link to='/' className=" nav-link" style={isActive('/')}>
                             {/* home / {JSON.stringify(history)}     */}
                             Nosotros
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/menu' className=" nav-link" style={isActive('/menu')}>
+                            {/* home / {JSON.stringify(history)}     */}
+                            Menu
                         </Link>
                     </li>
                         
@@ -90,12 +97,12 @@ const isActive = path => {
                 )}
                   <li className='icon'> 
                         <Link className="nav-link fas fa-utensils icon" 
-                            style={isActive('/menu')} 
-                            to="/menu">{""}
+                            style={isActive('/cart')} 
+                            to="/cart">{""}
                         
                             <sup>
-                                <small className="cart-cadge">
-                                {/* {itemTotal()} */}
+                                <small className="cart-badge">
+                                {itemTotal()}
                                 </small>
                             </sup>              
                         </Link>
