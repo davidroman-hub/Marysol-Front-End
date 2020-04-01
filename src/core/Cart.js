@@ -2,7 +2,7 @@ import React,{ useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import Layout from './Layout'
 import {getCart} from './CartHelpers'
-import Card from '../admin/Card'
+import Card3 from '../admin/Card2'
 
 
 window.addEventListener('scroll', () => {
@@ -25,7 +25,7 @@ const Cart = () => {
                 <h2>Tu orden tiene {`${item.length}` } platillos</h2>
                 <hr/>
                 {item.map((product,i)=>(
-                    <Card key={i} product={product}/>
+                    <Card3 key={i} product={product} cartUpdate={true} />
                 ))}
             </div>
         )
