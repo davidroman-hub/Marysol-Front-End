@@ -3,23 +3,30 @@ import {Link,Redirect} from 'react-router-dom'
 import photo from './img_avatar.png'
 import './Card.scss'
 import ShowImage from '../ShowImage'
-import {addItem, updateItem} from '../core/CartHelpers'
+import {updateItem, removeItem} from '../core/CartHelpers'
 
 const Card3 = ({product, 
                 cartUpdate = false,
+                showRemoveProductButton = false,
                 setRun = f => f,// default value of funtion 3.- as props
                 run = undefined // default value of undefined 4.- as props
             }) => {
 
     const [ redirect, setRedirect] = useState(false)
     const [ count, setCount] = useState(product.count)//, state for increment or dicrement quantity
-
+    
 
 
     const shouldRedirect = redirect => {
         if (redirect){
             return <Redirect to='/cart'/>
         }
+    }
+
+
+    const showStock = (quantity) => {
+        return quantity > 0 ? <span className="'badge badge-primary badge pill mb-1 ml-2">En existencia</span>:
+        <span className="badge badge-danger badge-pill">Agotado</span> 
     }
 
     // handleChange fot change the quantyty of the products
@@ -63,12 +70,31 @@ const handleChange = productId => event => {
     }
 
 
+    /// remove item method /// 
+
+    const showRemoveButton = (showRemoveProductButton) => {
+        return (
+            showRemoveProductButton && (
+                <button 
+                    onClick={() => { 
+                        setRun(!run)
+                        removeItem (product._id);
+                       
+                    }} 
+                            className='btn btn-outline-danger mt-2 mb-2'>
+                    Remover
+                </button>
+            )
+        )
+    }
+    
+
 
 
     return (
         <div className="card3">
             {/* <img src={photo} alt="avatar" style={{width:"100%"}} /> */}
-            {shouldRedirect(redirect)}
+            {/* {shouldRedirect(redirect)} */}
             <ShowImage item={product} url='product' />
        
             <div className="card-container">
@@ -86,16 +112,13 @@ const handleChange = productId => event => {
                 </button> */}
                 <p/>
                 {showCartUpdateOptions(cartUpdate)}
+                {showRemoveButton(showRemoveProductButton)}
                 {showStock(product.quantity)}        
             </div>
         </div>
     )
 }
 
-const showStock = (quantity) => {
-    return quantity > 0 ? <span className="'badge badge-primary badge pill mb-1 ml-2">En existencia</span>:
-    <span className="badge badge-danger badge-pill">Agotado</span> 
-}
 
 
 

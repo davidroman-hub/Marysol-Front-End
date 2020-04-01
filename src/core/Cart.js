@@ -14,10 +14,12 @@ window.addEventListener('scroll', () => {
 const Cart = () => {
 
     const [item, setItem] = useState([])
+    const [run, setRun] = useState(false); //<- for fix the infinity loop
+
 
     useEffect(() => {
-        setItem(getCart)
-    },[])
+        setItem(getCart())
+    },[run])
 
     const showItem = () => {
         return(
@@ -25,26 +27,31 @@ const Cart = () => {
                 <h2>Tu orden tiene {`${item.length}` } platillos</h2>
                 <hr/>
                 {item.map((product,i)=>(
-                    <Card3 key={i} product={product} cartUpdate={true} />
+                    <Card3 key={i} 
+                    product={product} 
+                    cartUpdate={true} 
+                    showRemoveProductButton={true}
+                    setRun={setRun}
+                    run={run}
+                    />
                 ))}
             </div>
         )
     }
 
     const notItemMessage = () => (
-        <h4>Tu carrito esta vacio.<br/> <Link to='/menu'>Contina Comprando</Link></h4>
+        <h4>Tu carrito esta vacio.<br/> <Link to='/menu'>Continua Comprando</Link></h4>
     )
 
     return (
-    <Layout title="Shopping Cart" 
-        description="Manage your cart item. Add remove or continue shopping" 
-        className='container-fluid'>
+    <Layout >
 
-    <div className='row'>
-        <div className='col-6'>
+    <div className=''>
+        <div className=''>
             {item.length > 0 ? showItem(item) : notItemMessage()}
         </div>
-        <div className='col-6'>
+
+        <div className=''>
         <p> Show checkout options/shipping address/ total/ update quantity</p>
         </div>
     </div>

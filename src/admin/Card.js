@@ -15,7 +15,7 @@ const Card = ({product}) => {
 
     const shouldRedirect = redirect => {
         if (redirect){
-            return <Redirect to='/cart'/>
+            return <Redirect to='/menu'/>
         }
     }
 
