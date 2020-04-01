@@ -3,6 +3,10 @@ import {Link} from 'react-router-dom'
 import Layout from './Layout'
 import {getCart} from './CartHelpers'
 import Card3 from '../admin/Card2'
+import Checkout from './Checkout'
+
+
+
 
 
 window.addEventListener('scroll', () => {
@@ -46,13 +50,14 @@ const Cart = () => {
     return (
     <Layout >
 
-    <div className=''>
-        <div className=''>
+    <div className='container-card-product'>
+        <div className='product-card'>
             {item.length > 0 ? showItem(item) : notItemMessage()}
         </div>
 
-        <div className=''>
-        <p> Show checkout options/shipping address/ total/ update quantity</p>
+        <div className='product-card-1'>
+         <h3>Tu orden</h3>
+        <Checkout product={item}/>
         </div>
     </div>
             <div id='header-content'/>
