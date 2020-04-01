@@ -41,3 +41,14 @@ export const addItem = (item, next) => {
         }
         return 0;
     }; 
+
+// this method os for get all the elements in the cart and how them in the cart component
+
+export const getCart = () => { 
+    if(typeof window !== 'undefined'){
+        if(localStorage.getItem('cart')){
+            return JSON.parse(localStorage.getItem('cart'));
+        }
+    }
+    return [];
+};

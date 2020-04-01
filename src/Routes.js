@@ -28,6 +28,9 @@ import AddProduct from './admin/addProduct'
 import Menu from './core/Shop'
 import App from './App'
 import Product from './core/Product'
+import Cart from './core/Cart'
+
+
 const Routes = () => {
 
 
@@ -45,6 +48,7 @@ return (
                 <Route exact path="/auth/activate/:token" component={Activate}/>
                 <Route exact path="/menu" component={Menu}/>
                 <Route exact path="/product/:productId" component={Product}/>
+                <Route exact path="/cart" component={Cart}/>
                 {/* /// User Routes// */}
 
                 <PrivateRoute exact path="/user/private" component={Private}/>
