@@ -32,7 +32,7 @@ const Cart = () => {
     }
 
     const notItemMessage = () => (
-        <h2>Your cart is empty.<br/> <Link to='/shop'>Contina Comprando</Link></h2>
+        <h4>Tu carrito esta vacio.<br/> <Link to='/menu'>Contina Comprando</Link></h4>
     )
 
     return (

@@ -3,11 +3,17 @@ import {Link,Redirect} from 'react-router-dom'
 import photo from './img_avatar.png'
 import './Card.scss'
 import ShowImage from '../ShowImage'
-//import {addItem} from '../core/CartHelpers'
+import {addItem, updateItem} from '../core/CartHelpers'
 
-const Card3 = ({product, cartUpdate = false}) => {
+const Card3 = ({product, 
+                cartUpdate = false,
+                setRun = f => f,// default value of funtion 3.- as props
+                run = undefined // default value of undefined 4.- as props
+            }) => {
 
     const [ redirect, setRedirect] = useState(false)
+    const [ count, setCount] = useState(product.count)//, state for increment or dicrement quantity
+
 
 
     const shouldRedirect = redirect => {
@@ -16,10 +22,45 @@ const Card3 = ({product, cartUpdate = false}) => {
         }
     }
 
-    const showCartUpdateOptions = cartUpdate => {
-        return cartUpdate && <div> Increment/ dicrement </div>
-    }
+    // handleChange fot change the quantyty of the products
+//we need to create another method in card helpers called update and use at the final
 
+const handleChange = productId => event => {
+    setRun(!run)
+    setCount (event.target.value < 1 ? 1 : event.target.value )
+    if(event.target.value >= 1) {
+        updateItem(productId, event.target.value);
+    }
+}
+
+// method for show if we want to add more quantity for the same product 
+
+
+    const showCartUpdateOptions = cartUpdate => {
+        return cartUpdate && (
+        <div> 
+            <div className='input-group mb-3'>
+                <div className='input-group-prepend'>
+                    <span className='input-group-text ml-2'>
+                        Cantidad (Máx 10)
+                    </span>
+                    {/* we need to know who it will be the product to we need to incr/dicr thats whywe use Id*/}
+                </div>
+                {/* <select onChange={handleChange(product._id)}>
+                    <option value={count}>1</option>
+                    <option value={count}>2</option> 
+                    <option value={count}>3</option> 
+                </select> */}
+    
+                 <input type="number"
+                 className="ml-2"
+                  max='10'
+                  value={count} 
+                  onChange={handleChange(product._id)} />
+            </div>
+        </div>
+        )
+    }
 
 
 
@@ -44,9 +85,8 @@ const Card3 = ({product, cartUpdate = false}) => {
                      Agregar a orden
                 </button> */}
                 <p/>
-                {showStock(product.quantity)}
                 {showCartUpdateOptions(cartUpdate)}
-                
+                {showStock(product.quantity)}        
             </div>
         </div>
     )
