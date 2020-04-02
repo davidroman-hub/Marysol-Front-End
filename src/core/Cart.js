@@ -60,7 +60,7 @@ const Cart = () => {
          <p className="text-center">Esta sección esta diseñada para pagos a contra entrega. </p> 
          <p className="text-center">Lo que significa que pagaras en efectivo o con tu tarjeta a la hora de recibir tu pedido , sin embargo es necesario poner datos para generar la orden.</p>
          <p class="text-center">Lo único que debes hacer es poner los siguientes datos en el area de tarjetas para generar la orden:</p>
-         <p class="text-center"> Copia y coloca la siguiente info en el area de pago: Num. tarjeta : 4111111111111111 exp:02/24 CVV:123 y dar click en Ordenar! </p>
+         <p class="text-center"> Copia y coloca la siguiente info en el area de pago: Num. tarjeta : 4111111111111111 exp:02/24 y dar click en Ordenar! </p>
          <p class="text-center"> Recibiras una llamada por parte de nuestro Team confirmando tu orden y un E-mail de confirmación! </p>
          <p class="text-center">Los detalles de tus platillos como condimentos, catsup, cilantro, etc.. seran preguntados en la llamada </p>        
         <Checkout product={item}/>

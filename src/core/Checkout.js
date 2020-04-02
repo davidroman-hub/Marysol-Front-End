@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import Layout from './Layout'
-import {getBraintreeClientToken} from './apiCore'
+import {getBraintreeClientToken, processPayment} from './apiCore'
 import Card from '../admin/Card2'
 import {isAuth, getCookie} from '../auth/helpers'
 import {Link} from 'react-router-dom'
@@ -58,9 +58,25 @@ const Checkout = ({product}) => {
             // and also total amount
             console.log('send nonce and total amount', nonce, getTotal(product))
 
+            //payment data
+            const paymentData ={
+                paymentMethodNonce:nonce,
+                amount:getTotal(product)
+            }
+            processPayment(Id, token, paymentData)
+            // .then(response => console.log(response))
+            .then(response =>{ 
+                setData({...data, success:response.success})
+            
+                //empty card
+                //create order
+
+            })
+            .catch(error => console.log(error))
+
         })
         .catch(error => {
-            console.log('dropin error:', error)
+            //console.log('dropin error:', error)
             setData({...data, error:error.message})
         })
 
@@ -107,11 +123,18 @@ const showDropIn = () => {
 
 
 
-           const showError = error => (
-            <div className='alert alert-danger' style={{display: error ? '':'none'}}>
-                {error}
+    const showError = error => (
+          <div className='alert alert-danger' style={{display: error ? '':'none'}}>
+              {error}
             </div>
         )
+
+    const showSuccess = success => (
+        <div className='alert alert-info' style={{display: success ? '':'none'}}>
+        Gracias! tu orden ha sido recibida!(recibiras una llamada y un E-mail de confirmación) 
+      </div>
+    )
+
         
 
 
@@ -120,6 +143,7 @@ const showDropIn = () => {
         <div>
         <h2> Total: ${getTotal()}</h2>
         {showError(data.error)}
+        {showSuccess(data.success)}
         {showCheckout()}
         </div>
     )

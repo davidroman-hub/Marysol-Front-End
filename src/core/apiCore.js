@@ -81,7 +81,7 @@ export const getBraintreeClientToken = (Id, token) => {
 // Process to payment method
 
 export const processPayment = ( userId, token, paymentData) => {
-    return fetch(`${API}/braintree/payment/${userId}`,{
+    return fetch(`${API}/braintree/payment/${isAuth()._id}`,{
         method:"POST",
         headers: {
             Accept: "application/json",
