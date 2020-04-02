@@ -1,5 +1,6 @@
 import {API} from '../Config'
 
+import {isAuth, getCookie} from '../auth/helpers'
 // Method for get the categories from the back
 
 export const getCategories = () => {
@@ -59,3 +60,56 @@ export const listRelated = productId => {
     })
     .catch(err => console.log(err))
 } 
+
+// to take the token from the backend from braintree i have to made another methods for take them
+
+export const getBraintreeClientToken = (Id, token) => {
+    return fetch(`${API}/braintree/getToken/${isAuth()._id}`,{
+        method:"GET",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization:`Bearer ${token}`
+        }
+    })
+    .then ( response => {
+        return response.json()
+    })
+    .catch( err => console.log(err))
+}
+
+// Process to payment method
+
+export const processPayment = ( userId, token, paymentData) => {
+    return fetch(`${API}/braintree/payment/${userId}`,{
+        method:"POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization:`Bearer ${token}`
+        },
+        body: JSON.stringify(paymentData)
+    })
+    .then((response) => {
+        return response.json()
+    })
+    .catch((err) => console.log(err))
+}
+
+///// create order //// 
+
+export const createOrder = ( userId, token, createOrderData) => {
+    return fetch(`${API}/order/create/${userId}`,{
+        method:"POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization:`Bearer ${token}`
+        },
+        body: JSON.stringify({order:createOrderData})
+    })
+    .then((response) => {
+        return response.json()
+    })
+    .catch((err) => console.log(err))
+}
