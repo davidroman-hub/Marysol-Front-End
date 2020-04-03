@@ -1,12 +1,26 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import Layout from './Layout'
-
+import {Link,Redirect} from 'react-router-dom'
 import Card from '../admin/Card2'
 import {isAuth, getCookie} from '../auth/helpers'
-import {Link} from 'react-router-dom'
 import {createOrder} from '../core/apiCore'
+import {emptyCart} from './CartHelpers'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
-const Checkout = ({product}) => {
+
+const Checkout = ({product, setRun = f => f, run = undefined}) => {
+
+
+    
+    const [ redirect, setRedirect] = useState(false)
+   
+    const shouldRedirect = redirect => {
+        if (redirect){
+            return <Redirect to='/user/dashboard'/>
+        }
+    }
+
 
     const [data, setData] = useState({
         //loading:false,
@@ -75,10 +89,15 @@ const buy = () => {
 
     createOrder(Id,token,createOrderData)
     .then(response =>{
-        console.log('order created')
-        setData({
-            loading:false,
-            success:true
+        emptyCart(() => {
+            setRun(!run);
+            setRedirect(true);
+             toast.success(`La orden ha sido creada!`);
+            console.log('order created and empty Cart');
+            setData({
+                loading:false,
+                success:true
+            })
         })
     })
     .catch(error => {
@@ -146,6 +165,8 @@ const showSuccess = success => {
         // <div>{JSON.stringify(product)}</div>
         <div>
         <h2> Total: ${getTotal()}</h2>
+        <ToastContainer/>
+        {shouldRedirect(redirect)}
         {showSuccess(data.success)} 
         {showCheckout()}
         </div>
