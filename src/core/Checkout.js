@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 //import DropIn from 'braintree-web-drop-in-react'
 import DropIn from 'braintree-web-drop-in-react'
 
-const Checkout = ({product}) => {
+const Checkout = ({product, setRun = f => f, run = undefined}) => {
 
     const [data, setData] = useState({
         //loading:false,
@@ -26,8 +26,8 @@ const Checkout = ({product}) => {
     const token = getCookie('token')  //// <-- right one
     const Id = getCookie('token')  //// <-- right one
 
-    const getToken = (userId, token) => {
-        getBraintreeClientToken(userId, token).then(
+    const getToken = (Id, token) => {
+        getBraintreeClientToken(Id, token).then(
             data => { if (data.error){
                 setData({...data, error:data.error})
                 }

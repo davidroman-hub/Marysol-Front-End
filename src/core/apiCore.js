@@ -99,7 +99,7 @@ export const processPayment = ( userId, token, paymentData) => {
 ///// create order //// 
 
 export const createOrder = ( userId, token, createOrderData) => {
-    return fetch(`${API}/order/create/${userId}`,{
+    return fetch(`${API}/order/create/${isAuth()._id}}`,{
         method:"POST",
         headers: {
             Accept: "application/json",

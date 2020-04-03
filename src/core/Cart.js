@@ -2,9 +2,10 @@ import React,{ useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import Layout from './Layout'
 import {getCart} from './CartHelpers'
+import {createOrder} from '../core/apiCore'
 import Card3 from '../admin/Card2'
-import Checkout from './Checkout'
-
+//import Checkout from './Checkout'
+import Checkout from './Checkoutcopy'
 
 
 
@@ -47,6 +48,9 @@ const Cart = () => {
         <h4>Tu carrito esta vacio.<br/> <Link to='/menu'>Continua Comprando</Link></h4>
     )
 
+   
+
+
     return (
     <Layout >
 
@@ -58,11 +62,11 @@ const Cart = () => {
         <div >
          <h3 className='text-center'>Tu orden</h3>
          <p className="text-center">Esta sección esta diseñada para pagos a contra entrega. </p> 
-         <p className="text-center">Lo que significa que pagaras en efectivo o con tu tarjeta a la hora de recibir tu pedido , sin embargo es necesario poner datos para generar la orden.</p>
-         <p class="text-center">Lo único que debes hacer es poner los siguientes datos en el area de tarjetas para generar la orden:</p>
-         <p class="text-center"> Copia y coloca la siguiente info en el area de pago: Num. tarjeta : 4111111111111111 exp:02/24 y dar click en Ordenar! </p>
+         <p className="text-center">Lo que significa que pagaras en efectivo o con tu tarjeta a la hora de recibir tu pedido , sin embargo es necesario TU DIRECCIÓN</p>
          <p class="text-center"> Recibiras una llamada por parte de nuestro Team confirmando tu orden y un E-mail de confirmación! </p>
          <p class="text-center">Los detalles de tus platillos como condimentos, catsup, cilantro, etc.. seran preguntados en la llamada </p>        
+        {/* <Checkout product={item}/> */}
+        
         <Checkout product={item}/>
         </div>
     </div>
