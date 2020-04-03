@@ -22,7 +22,7 @@ import AdminRoute from './auth/adminRoute'
 import AdminDashboard from './admin/adminDashboard'
 import AddCategory from './admin/addCategory'
 import AddProduct from './admin/addProduct'
-
+import Orders from './admin/Orders'
 //public
 
 import Menu from './core/Shop'
@@ -59,7 +59,7 @@ return (
                 <AdminRoute exact path="/admin/dashboard" component={AdminDashboard}/>
                 <AdminRoute exact path="/create/category" component={AddCategory}/>
                 <AdminRoute exact path="/create/product" component={AddProduct}/>
-            
+                <AdminRoute exact path="/admin/orders" component={Orders}/>
             </Switch>
         </BrowserRouter>
     )

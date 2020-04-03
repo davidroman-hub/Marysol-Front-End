@@ -72,3 +72,20 @@ export const getProducts = sortBy => {
         })
         .catch(err => console.log(err));
 }; 
+
+
+/// lis all the orders to the admin dashboard /// 
+
+export const listOrders = (token) => {
+    return fetch(`${API}/order/list/${isAuth()._id}`, {
+        method: "GET",
+        headers: {
+            Accept:"application/json",
+            Authorization: `Bearer ${token}`
+        },
+    })
+    .then( response => {
+        return response.json()
+    })
+    .catch(err => console.log(err))
+}
