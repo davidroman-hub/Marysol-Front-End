@@ -7,7 +7,7 @@ import {createOrder} from '../core/apiCore'
 import {emptyCart} from './CartHelpers'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-
+import moment from 'moment';
 
 const Checkout = ({product, setRun = f => f, run = undefined}) => {
 
@@ -83,7 +83,8 @@ const buy = () => {
         products:product,
         transaction_id:null,
         amount:getTotal(product) ,
-        address:deliveryAddress
+        address:deliveryAddress,
+    
     }
 
 
