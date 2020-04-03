@@ -63,11 +63,11 @@ const showOrdersDisplay = () => {
                         <ul className='list-group mb-2'>
                             <li className='list-group-item'>{o.status}</li>
                             <li className='list-group-item'>Total de la orden: ${o.amount}</li>
-                            {/* <li className='list-group-item'>{o.transaction_id}</li>
-                            <li className='list-group-item'>ordenado por :{o.user.name}</li> */}
+                            {/* <li className='list-group-item'>{o.transaction_id}</li> */}
+                            <li className='list-group-item'>ordenado por :{o.name}</li>
                             <li className='list-group-item'>Creado el: {o.createdAt}</li>
                             <li className='list-group-item'>Dirección: {o.address}</li>
-                            <li className='list-group-item'>Telefono: </li>
+                            <li className='list-group-item'>Telefono:{o.number} </li>
                             <h3 className='mt-4 mb-4 font-italic'>
                                 Total de productos en la orden:{o.products.length}
                             </h3>

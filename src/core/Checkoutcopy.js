@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import Layout from './Layout'
 import {Link,Redirect} from 'react-router-dom'
 import Card from '../admin/Card2'
@@ -7,9 +7,10 @@ import {createOrder} from '../core/apiCore'
 import {emptyCart} from './CartHelpers'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import jwt from 'jsonwebtoken'
 import moment from 'moment';
 
-const Checkout = ({product, setRun = f => f, run = undefined}) => {
+const Checkout = ({product, setRun = f => f, run = undefined, match}) => {
 
 
     
@@ -20,8 +21,7 @@ const Checkout = ({product, setRun = f => f, run = undefined}) => {
             return <Redirect to='/user/dashboard'/>
         }
     }
-
-
+ 
     const [data, setData] = useState({
         //loading:false,
         success:false,
@@ -29,17 +29,19 @@ const Checkout = ({product, setRun = f => f, run = undefined}) => {
         error:'',
         instance:{},
         address:'',
-        amount:''
+        amount:'',
+        name:'',
+        number:'',
+        error:''
     })
 
      // if the user is Auth
 
-    // const userId = isAuth() && isAuth().user._id
-    // const token = isAuth() && isAuth().token
-
+    
     const token = getCookie('token')  //// <-- right one
     const Id = getCookie('token')  //// <-- right one
     
+
 
     ///// handle the addresss /////
 
@@ -49,22 +51,51 @@ const Checkout = ({product, setRun = f => f, run = undefined}) => {
         setData({...data, address:event.target.value})  
     }
 
+    /// handle name ///
 
-    const address = () => {
-            return(
-            <div className="mb-2">
-                <label className='text-muted'>
-                    Direccion de Envio
-                </label>
-            <textarea
-            onChange={handleAddress}
-            className='form-control'
-            value={data.address}
-            placeholder='Escribe tu direccion de envio aqui C.P, calle, Ref, etc..' required/>
-            </div>
-        )
+    let names = data.name
+  
+    const handleName =  event => {
+        setData({...data, name:event.target.value})  
     }
 
+//// handle the number ////
+
+let numbers = data.number
+  
+    const handleNumber =  event => {
+        setData({...data, number:event.target.value})  
+    }
+
+    
+    const orderForm = () => {
+            return(
+        <div className="mb-2">
+            <div className="form-group">    
+             <label className='text-muted'>Telefono: </label>
+                <input type="number"
+                onChange={handleNumber}
+                className='form-control'
+                value={data.number}
+                 required/>
+        </div>
+        <div className='form-group'>
+            <input type="text"
+                onChange={handleName}
+                className='form-control'
+                value={data.name}
+                placeholder='Nombre de quien hace la orden:' required/>
+            </div>
+            <div className="form-group">
+            <textarea
+                onChange={handleAddress}
+                className='form-control'
+                value={data.address}
+                placeholder='Escribe tu direccion de envio aqui C.P, calle, Ref, etc..' required/>
+            </div>
+        </div>    
+        )
+    }
 
 
  // Method for get the total amount
@@ -79,32 +110,56 @@ const Checkout = ({product, setRun = f => f, run = undefined}) => {
 const buy = () => {
         
     console.log(product)    
+   
     const createOrderData ={ 
         products:product,
-        transaction_id:null,
-        amount:getTotal(product) ,
-        address:deliveryAddress,
-    
+        number:numbers,
+        name:names,
+        amount:getTotal(product),
+        address:deliveryAddress
+
     }
 
 
-    createOrder(Id,token,createOrderData)
-    .then(response =>{
-        emptyCart(() => {
-            setRun(!run);
-            setRedirect(true);
-             toast.success(`La orden ha sido creada!`);
-            console.log('order created and empty Cart');
-            setData({
-                loading:false,
-                success:true
-            })
+//     createOrder(Id,token,createOrderData)
+//     .then(response =>{
+//         emptyCart(() => {
+//             setRun(!run);
+//             setRedirect(true);
+//              toast.success(`La orden ha sido creada!`);
+//             console.log('order created and empty Cart');
+//             setData({
+//                 loading:false,
+//                 success:true
+//             })
+//         })
+//     })
+//     .catch(error => {
+//         console.log(error)
+//         setData({...data, error: error.message})
+//     })
+// }
+
+createOrder(Id,token,createOrderData)
+.then(response =>{ 
+    if (response.error){
+        setData({...data, error: response.error})
+    }else{
+    emptyCart(() => {
+        setRun(!run);
+        setRedirect(true);
+         toast.success(`La orden ha sido creada!`);
+        console.log('order created and empty Cart');
+        setData({
+            loading:false,
+            success:true
         })
-    })
-    .catch(error => {
-        console.log(error)
-        setData({...data, error: error.message})
-    })
+   })
+}})
+.catch(error => {
+    console.log(error)
+    setData({...data, error: error.message})
+})
 }
 
 
@@ -115,9 +170,9 @@ const showDropIn = () => {
         <div onBlur={ ()=> setData({...data, error:''})}>
             {token !== null && product.length > 0 ? (
             <div>
-               
-              
-                {address()}
+                {orderForm()}
+                {/* {name()}
+                {address()} */}
                 <button onClick={buy} className="btn btn-success btn-block mr-b2">Ordenar</button>
             </div> 
         ) : null}</div>
@@ -147,7 +202,7 @@ const showError = error => {
 const showSuccess = success => {
             return (
                 <div className="alert alert-info" style={{display:success ? '':'none'}}>
-                    Gracias por tu solicitud!  en breve recibiras un E-mail. Ve a tu perfil para ver la orden
+                    Gracias por tu solicitud!   en breve recibiras un E-mail. Ve a tu perfil para ver la orden
                 </div>
             )
         }
@@ -167,7 +222,8 @@ const showSuccess = success => {
         <div>
         <h2> Total: ${getTotal()}</h2>
         <ToastContainer/>
-        {shouldRedirect(redirect)}
+        {/* {shouldRedirect(redirect)} */}
+        {showError(data.error)}
         {showSuccess(data.success)} 
         {showCheckout()}
         </div>

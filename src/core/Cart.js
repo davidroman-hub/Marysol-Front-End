@@ -4,8 +4,8 @@ import Layout from './Layout'
 import {getCart} from './CartHelpers'
 import {createOrder} from '../core/apiCore'
 import Card3 from '../admin/Card2'
-import Checkout from './Checkout'
-//import Checkout from './Checkoutcopy'
+//import Checkout from './Checkout'
+import Checkout from './Checkoutcopy'
 
 
 
