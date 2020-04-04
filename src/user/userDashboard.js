@@ -4,7 +4,7 @@ import Layout from '../core/Layout'
 import {isAuth, getCookie, signout} from '../auth/helpers'
 import axios from 'axios';
 import {getPurchaseHistory } from './apiUser'
-
+import moment from 'moment'
 
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header-content');
@@ -58,6 +58,56 @@ const purchase = (historyP) => {
 }
 
 
+const purchaseInfo = (historyP) => {
+    return(
+        <div className='card mb-5'  >
+        <ul className='list-group'>
+          <li className='list-group-item'>
+             {/* {JSON.stringify(history)} */}
+             {historyP.map((h, i) => {
+                        return (
+                            <div>             
+                                <hr />
+                                <div style={{borderBottom:"5px solid green"}} />
+                                <h2 className='mt-2' >Total de la orden $: {h.amount}</h2>
+                                <h3 style={{color:'red'}}>ID orden:{h._id}</h3>
+                                <h4 style={{color: 'orange'}}>Estatus de la orden:{h.status}</h4>
+                                <h6>Ordenado por: {h.name}</h6>
+                                <h6>Telefono de contacto: {h.number}</h6>
+                                <h6>Dirección de envio: {h.address}</h6>
+                                <h6>
+                                     Comprado el dia:{" "}
+                                    {h.createdAt}                                                    
+                                </h6>
+
+                                <br/>
+                                <h2>Productos en la orden:{h.products.length}</h2>
+                                {h.products.map((p, i) => {
+                                    return (
+                                        <div key={i}>
+                                            <br/>
+                                            <h6>Nombre del Producto: {p.name}</h6>
+                                            <h6>Cantidad del Producto: {p.count}</h6>
+                                            <h6>Precio: ${p.price}</h6>
+                                            <br/>                             
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        );
+                    })}
+             
+          </li>
+       </ul>
+  </div>
+    )
+}
+
+
+
+
+
+
 const loadProfile = () => {
     axios({
         method: 'GET',
@@ -96,9 +146,9 @@ const loadProfile = () => {
                 <li className='list-group-item'>
                     E-mail:{email}
                 </li>
-                <li className='list-group-item'>
+                {/* <li className='list-group-item'>
                   Telefono:{phone}
-                </li>
+                </li> */}
             </ul>
         </div>
 
@@ -111,11 +161,7 @@ const loadProfile = () => {
       
         <div className='card mb-5'>
               <h3 className='card-header'>Historial de mis Compras</h3> 
-              <ul className='list-group'>
-                <li className='list-group-item'>
-                {purchase(historyP)}
-                </li>
-             </ul>
+              {purchaseInfo(historyP)}
         </div>
     </Layout>
    
