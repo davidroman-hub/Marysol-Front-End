@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import Layout from '../core/Layout'
 import {isAuth, getCookie, signout} from '../auth/helpers'
 import axios from 'axios';
+import {getPurchaseHistory } from './apiUser'
+
 
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header-content');
@@ -10,6 +12,14 @@ window.addEventListener('scroll', () => {
 
 
 const Dashboard = ({history}) =>{
+
+
+    // state for the user purchase 
+    const [historyP, setHistory] = useState([])
+
+    const token = getCookie('token') //<-- we need this for send the token and populate
+    const Id = getCookie('token')
+
 
     const [values, setValues] = useState({
         role:'',
@@ -20,12 +30,30 @@ const Dashboard = ({history}) =>{
         buttonText: 'Update'
     });
 
-const token = getCookie('token') //<-- we need this for send the token and populate
-
+    const loadinit  = (Id,token) => {
+        getPurchaseHistory(Id,token).then(data => {
+            if (data.error){
+                console.log(data.error)
+            } else {
+                setHistory(data)
+            }
+        })
+    }
 
 useEffect(()=>{
-    loadProfile()
+    loadinit(Id,token)
+    loadProfile();
+  
 },[])
+
+
+const purchase = (historyP) => {
+    return(
+        <div className>
+            {JSON.stringify(historyP)}
+        </div>
+    )
+}
 
 
 const loadProfile = () => {
@@ -83,7 +111,7 @@ const loadProfile = () => {
               <h3 className='card-header'>Historial de mis Compras</h3> 
               <ul className='list-group'>
                 <li className='list-group-item'>
-                    history
+                {purchase(historyP)}
                 </li>
              </ul>
         </div>

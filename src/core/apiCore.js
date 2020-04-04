@@ -1,6 +1,7 @@
 import {API} from '../Config'
 
 import {isAuth, getCookie} from '../auth/helpers'
+
 // Method for get the categories from the back
 
 export const getCategories = () => {
