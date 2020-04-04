@@ -7,8 +7,6 @@ import {createOrder} from '../core/apiCore'
 import {emptyCart} from './CartHelpers'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import jwt from 'jsonwebtoken'
-import moment from 'moment';
 
 const Checkout = ({product, setRun = f => f, run = undefined, match}) => {
 
@@ -222,7 +220,7 @@ const showSuccess = success => {
         <div>
         <h2> Total: ${getTotal()}</h2>
         <ToastContainer/>
-        {/* {shouldRedirect(redirect)} */}
+        {shouldRedirect(redirect)}
         {showError(data.error)}
         {showSuccess(data.success)} 
         {showCheckout()}

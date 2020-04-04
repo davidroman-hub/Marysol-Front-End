@@ -74,7 +74,7 @@ export const getProducts = sortBy => {
 }; 
 
 
-/// lis all the orders to the admin dashboard /// 
+/// list all the orders to the admin dashboard /// 
 
 export const listOrders = (token) => {
     return fetch(`${API}/order/list/${isAuth()._id}`, {
@@ -83,6 +83,40 @@ export const listOrders = (token) => {
             Accept:"application/json",
             Authorization: `Bearer ${token}`
         },
+    })
+    .then( response => {
+        return response.json()
+    })
+    .catch(err => console.log(err))
+}
+
+/// enumerate status values method from backend ///
+
+export const getStatusValues = (token) => {
+    return fetch(`${API}/order/status-values/${isAuth()._id}`, {
+        method: "GET",
+        headers: {
+            Accept:"application/json",
+            Authorization: `Bearer ${token}`
+        },
+    })
+    .then( response => {
+        return response.json()
+    })
+    .catch(err => console.log(err))
+}
+
+//update order status
+
+export const updateOrderStatus = (userId,token,orderId,status) => {
+    return fetch(`${API}/order/${orderId}/status/${isAuth()._id}}`, {
+        method: "PUT",
+        headers: {
+            Accept:"application/json",
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({status,orderId})
     })
     .then( response => {
         return response.json()

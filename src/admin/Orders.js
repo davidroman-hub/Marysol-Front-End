@@ -16,12 +16,14 @@ window.addEventListener('scroll', () => {
 const Orders = () => {
 
     const [orders, setOrders] = useState([])
+      //for take the status
+    const [statusValues, setStatusValues] = useState([])
+
     const token = getCookie('token')  //// <-- right one
     const Id = getCookie('token')  //// <-- right one
 
 
     const loadOders = () => {
-
         listOrders(Id, token).then(data => {
             if (data.error){
                 console.log(data.error)
@@ -31,9 +33,53 @@ const Orders = () => {
         })
     }
 
+    
+    const loadStatusValues = () => {
+        getStatusValues(Id, token).then(data => {
+            if (data.error){
+                console.log(data.error)
+            } else{
+                setStatusValues(data)
+            }
+        })
+    }
+
+    //to manage the status
+    const handleStatusChange = (e, orderId) => {
+        // console.log('update order status')
+        updateOrderStatus(Id, token ,orderId, e.target.value).then(
+            data => {
+                if (data.error){
+                    console.log('status update failed')
+                } else {
+                    loadOders()
+                }
+            }
+        )
+    }
+
+
+      // for show the status
+      const showStatus = (o) => {
+        return (
+            <div className='form-group'>
+            <h3 className='mark mb-4'>Estatus: {o.status}</h3>
+            <select className='form-control' 
+                 onChange={(e) => handleStatusChange(e, o._id)}>
+                <option>Actualizar estado de orden</option>
+                {statusValues.map((status, index) => (
+                    <option key={index} value={status}>{status}</option>
+                ) )}
+
+            </select>
+        </div>
+        )
+    }
+
 
     useEffect(()=>{
-        loadOders()
+        loadOders();
+         loadStatusValues()
     },[])
 
 const showOrdersLength = () => {
@@ -61,7 +107,10 @@ const showOrdersDisplay = () => {
                   <div  className='mt-5' key={oIndex} style={{borderBottom:"5px solid indigo"}}>
                         <h6 className='bg-primary'>ID de la orden:{o._id}</h6>
                         <ul className='list-group mb-2'>
-                            <li className='list-group-item'>{o.status}</li>
+                            <li className='list-group-item'>
+                                {/* {o.status} */}
+                                {showStatus(o)}
+                                </li>
                             <li className='list-group-item'>Total de la orden: ${o.amount}</li>
                             {/* <li className='list-group-item'>{o.transaction_id}</li> */}
                             <li className='list-group-item'>ordenado por :{o.name}</li>
