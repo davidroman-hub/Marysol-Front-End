@@ -30,6 +30,8 @@ const Dashboard = ({history}) =>{
         buttonText: 'Update'
     });
 
+    /// method for show the history purchased
+
     const loadinit  = (Id,token) => {
         getPurchaseHistory(Id,token).then(data => {
             if (data.error){
