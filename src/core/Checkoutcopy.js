@@ -68,22 +68,32 @@ let numbers = data.number
     
     const orderForm = () => {
             return(
+     <form  onSubmit={buy}  >
+         <ul>
+            
         <div className="mb-2">
-            <div className="form-group">    
-             <label className='text-muted'>Telefono: </label>
-                <input type="number"
-                onChange={handleNumber}
-                className='form-control'
-                value={data.number}
-                 required/>
-        </div>
-        <div className='form-group'>
-            <input type="text"
-                onChange={handleName}
-                className='form-control'
-                value={data.name}
-                placeholder='Nombre de quien hace la orden:' required/>
-            </div>
+        
+            <li>
+                <div className="form-group">    
+                <label className='text-muted'>Telefono: </label>
+                    <input type="number"
+                    onChange={handleNumber}
+                    className='form-control'
+                    value={data.number}
+                    required/>
+                </div>
+            </li>
+
+            <li>
+                <div className='form-group'>
+                <input type="text"
+                    onChange={handleName}
+                    className='form-control'
+                    value={data.name}
+                    placeholder='Nombre de quien hace la orden:' required/>
+                </div>
+            </li>
+            <li>
             <div className="form-group">
             <textarea
                 onChange={handleAddress}
@@ -91,7 +101,14 @@ let numbers = data.number
                 value={data.address}
                 placeholder='Escribe tu direccion de envio aqui C.P, calle, Ref, etc..' required/>
             </div>
-        </div>    
+            </li>
+            <li>
+                <button className="btn btn-success btn-block mr-b2" >Ordenar</button>
+            </li>   
+        </div>
+        
+        </ul>
+     </form>    
         )
     }
 
@@ -105,10 +122,11 @@ let numbers = data.number
 
 
 
-const buy = () => {
-        
+const buy = (event) => {
+        event.preventDefault()
     console.log(product)    
-   
+    
+    
     const createOrderData ={ 
         products:product,
         number:numbers,
@@ -117,7 +135,7 @@ const buy = () => {
         address:deliveryAddress
 
     }
-
+  
 
 //     createOrder(Id,token,createOrderData)
 //     .then(response =>{
@@ -142,6 +160,7 @@ createOrder(Id,token,createOrderData)
 .then(response =>{ 
     if (response.error){
         setData({...data, error: response.error})
+        
     }else{
     emptyCart(() => {
         setRun(!run);
@@ -161,6 +180,29 @@ createOrder(Id,token,createOrderData)
 }
 
 
+// createOrder(Id,token,createOrderData)
+// .then(response =>{ 
+//     if (response.error){
+//         setData({...data, error: response.error})
+//     }else{
+//     emptyCart(() => {
+//         setRun(!run);
+//         setRedirect(true);
+//          toast.success(`La orden ha sido creada!`);
+//         console.log('order created and empty Cart');
+//         setData({
+//             loading:false,
+//             success:true
+//         })
+//    })
+// }})
+// .catch(error => {
+//     console.log(error)
+//     setData({...data, error: error.message})
+// })
+// }
+
+
 
 
 const showDropIn = () => {
@@ -170,8 +212,7 @@ const showDropIn = () => {
             <div>
                 {orderForm()}
                 {/* {name()}
-                {address()} */}
-                <button onClick={buy} className="btn btn-success btn-block mr-b2">Ordenar</button>
+                {address()} */}     
             </div> 
         ) : null}</div>
     )
@@ -220,7 +261,7 @@ const showSuccess = success => {
         <div>
         <h2> Total: ${getTotal()}</h2>
         <ToastContainer/>
-        {shouldRedirect(redirect)}
+        {/* {shouldRedirect(redirect)} */}
         {showError(data.error)}
         {showSuccess(data.success)} 
         {showCheckout()}

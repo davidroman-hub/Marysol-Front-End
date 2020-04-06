@@ -14,8 +14,6 @@ window.addEventListener('scroll', () => {
     const header = document.getElementById('header-content');
       header.style.opacity = false})
 
-
-
 const Cart = () => {
 
     const [item, setItem] = useState([])
@@ -26,13 +24,14 @@ const Cart = () => {
         setItem(getCart())
     },[run])
 
-    const showItem = () => {
+    const showItem = item => {
         return(
             <div>
                 <h2>Tu orden tiene {`${item.length}` } platillos</h2>
                 <hr/>
                 {item.map((product,i)=>(
-                    <Card3 key={i} 
+                    <Card3 
+                    key={i} 
                     product={product} 
                     cartUpdate={true} 
                     showRemoveProductButton={true}
@@ -67,7 +66,7 @@ const Cart = () => {
          <p class="text-center">Los detalles de tus platillos como condimentos, catsup, cilantro, etc.. seran preguntados en la llamada </p>        
         {/* <Checkout product={item}/> */}
         
-        <Checkout product={item}/>
+        <Checkout product={item} setRun={setRun} run={run}/>
         </div>
     </div>
             <div id='header-content'/>

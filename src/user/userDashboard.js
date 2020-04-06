@@ -95,8 +95,7 @@ const purchaseInfo = (historyP) => {
                                 })}
                             </div>
                         );
-                    })}
-             
+                    })}     
           </li>
        </ul>
   </div>
