@@ -23,6 +23,7 @@ import AdminDashboard from './admin/adminDashboard'
 import AddCategory from './admin/addCategory'
 import AddProduct from './admin/addProduct'
 import Orders from './admin/Orders'
+import ManageProducts from './admin/ManageProducts'
 //public
 
 import Menu from './core/Shop'
@@ -60,6 +61,7 @@ return (
                 <AdminRoute exact path="/create/category" component={AddCategory}/>
                 <AdminRoute exact path="/create/product" component={AddProduct}/>
                 <AdminRoute exact path="/admin/orders" component={Orders}/>
+                <AdminRoute exact path="/admin/products" component={ManageProducts}/>
             </Switch>
         </BrowserRouter>
     )
