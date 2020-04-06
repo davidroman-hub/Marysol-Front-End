@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import Layout from './Layout'
+import './Layout.scss'
 import {Link,Redirect} from 'react-router-dom'
 import Card from '../admin/Card2'
 import {isAuth, getCookie} from '../auth/helpers'
@@ -68,12 +69,12 @@ let numbers = data.number
     
     const orderForm = () => {
             return(
-     <form  onSubmit={buy}  >
+     <form  onSubmit={buy} >
          <ul>
             
         <div className="mb-2">
         
-            <li>
+            <li className="nav-item">
                 <div className="form-group">    
                 <label className='text-muted'>Telefono: </label>
                     <input type="number"
@@ -84,7 +85,7 @@ let numbers = data.number
                 </div>
             </li>
 
-            <li>
+            <li className="nav-item">
                 <div className='form-group'>
                 <input type="text"
                     onChange={handleName}
@@ -93,7 +94,7 @@ let numbers = data.number
                     placeholder='Nombre de quien hace la orden:' required/>
                 </div>
             </li>
-            <li>
+            <li className="nav-item">
             <div className="form-group">
             <textarea
                 onChange={handleAddress}
@@ -102,7 +103,7 @@ let numbers = data.number
                 placeholder='Escribe tu direccion de envio aqui C.P, calle, Ref, etc..' required/>
             </div>
             </li>
-            <li>
+            <li className="nav-item">
                 <button className="btn btn-success btn-block mr-b2" >Ordenar</button>
             </li>   
         </div>
