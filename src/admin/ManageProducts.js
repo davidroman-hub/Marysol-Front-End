@@ -55,11 +55,13 @@ const ManageProducts = () => {
         <div className="row">
             <div className="col-12">
             <h1>Manejo de productos</h1>
+            <h3>Total de Productos:{products.length}</h3>
+            <hr/>
             <ul className='list-group'>
                 {products.map((p,i) => (
                     <li key={i} className='list-group-item d-flex justify-content-between align-items-center'>
                        <strong>{p.name}</strong>
-                        <Link to={`admin/product/update/${p.id}`} >
+                        <Link to={`product/update/${p._id}`} >
                             <span className='badge badge-warning badge-pill'>Actualizar</span>
                         </Link>
                         <span onClick={()=> destroy(p._id)} className='badge badge-danger badge-pill'>Eliminar</span>

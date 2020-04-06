@@ -24,6 +24,7 @@ import AddCategory from './admin/addCategory'
 import AddProduct from './admin/addProduct'
 import Orders from './admin/Orders'
 import ManageProducts from './admin/ManageProducts'
+import UpdateProduct from './admin/UpdateProduct'
 //public
 
 import Menu from './core/Shop'
@@ -62,6 +63,7 @@ return (
                 <AdminRoute exact path="/create/product" component={AddProduct}/>
                 <AdminRoute exact path="/admin/orders" component={Orders}/>
                 <AdminRoute exact path="/admin/products" component={ManageProducts}/>
+                <AdminRoute exact path="/admin/product/update/:productId" component={UpdateProduct}/>
             </Switch>
         </BrowserRouter>
     )
