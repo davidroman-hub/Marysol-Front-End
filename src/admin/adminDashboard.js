@@ -49,7 +49,7 @@ const loadProfile = () => {
             signout(() => {
                 history.push('/'); //<-- for signout automatically
             })
-        } 
+        }
     })
 }
 
@@ -68,9 +68,9 @@ const loadProfile = () => {
                 <li className='list-group-item'>
                     E-mail:{email}
                 </li>
-                <li className='list-group-item'>
+                {/* <li className='list-group-item'>
                   Telefono:{phone}
-                </li>
+                </li> */}
             </ul>
         </div>
 
@@ -94,17 +94,17 @@ const loadProfile = () => {
 
         </div>
 
-      
-        <div className='card mb-5'>
-              <h3 className='card-header'>Historial de mis Compras</h3> 
+
+        {/* <div className='card mb-5'>
+              <h3 className='card-header'>Historial de mis Compras</h3>
               <ul className='list-group'>
                 <li className='list-group-item'>
                     history
                 </li>
              </ul>
-        </div>
+        </div> */}
     </Layout>
-   
+
     )
 }
 
