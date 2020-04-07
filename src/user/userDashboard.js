@@ -140,20 +140,23 @@ const loadProfile = () => {
             <h3 className='card-header'>Información del Usuario</h3>
             <ul className='list-group'>
                 <li className='list-group-item'>
-                    hola!{name}
+                    hola! {name}
                 </li>
                 <li className='list-group-item'>
-                    E-mail:{email}
+                    E-mail: {email}
                 </li>
                 {/* <li className='list-group-item'>
                   Telefono:{phone}
                 </li> */}
             </ul>
         </div>
-
+            
         <div className='card mb-5'>
+            <h4 className='text-center'>Antes de Ordenar es importante actualizar tu información!!</h4>
+            <hr/>
+            <h5 className='text-center'>Necesitamos tu dirección de envío y tu telefono para poder contactarte!</h5>
             <li className='list-group-item'>
-                <Link to='/user/private'>Actualizar mi información</Link>
+                <Link to='/user/private' >Actualizar mi información</Link>
             </li>
         </div>
 

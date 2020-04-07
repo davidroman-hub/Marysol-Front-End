@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 
+
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header-content');
       header.style.opacity = false})

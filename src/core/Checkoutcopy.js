@@ -74,7 +74,7 @@ let numbers = data.number
             
         <div className="mb-2">
         
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <div className="form-group">    
                 <label className='text-muted'>Telefono: </label>
                     <input type="number"
@@ -102,7 +102,7 @@ let numbers = data.number
                 value={data.address}
                 placeholder='Escribe tu direccion de envio aqui C.P, calle, Ref, etc..' required/>
             </div>
-            </li>
+            </li> */}
             <li className="nav-item">
                 <button className="btn btn-success btn-block mr-b2" >Ordenar</button>
             </li>   
@@ -132,6 +132,10 @@ const buy = (event) => {
         products:product,
         number:numbers,
         name:names,
+        client_email:isAuth().email,
+        client_name:isAuth().name,
+        client_phone:isAuth().phone,
+        client_id:isAuth()._id,
         amount:getTotal(product),
         address:deliveryAddress
 

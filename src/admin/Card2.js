@@ -48,8 +48,8 @@ const handleChange = productId => event => {
         <div> 
             <div className='input-group mb-3'>
                 <div className='input-group-prepend'>
-                    <span className='input-group-text ml-2'>
-                        Cantidad (Máx 10)
+                    <span className='input-group-text mb-2 ml-4'>
+                        Cantidad:
                     </span>
                     {/* we need to know who it will be the product to we need to incr/dicr thats whywe use Id*/}
                 </div>
@@ -60,7 +60,7 @@ const handleChange = productId => event => {
                 </select> */}
     
                  <input type="number"
-                 className="ml-2"
+                 className="ml-4 mt-1"
                   max='10'
                   value={count} 
                   onChange={handleChange(product._id)} />
@@ -75,13 +75,13 @@ const handleChange = productId => event => {
     const showRemoveButton = (showRemoveProductButton) => {
         return (
             showRemoveProductButton && (
-                <button 
+                <button
                     onClick={() => { 
                         setRun(!run)
                         removeItem (product._id);
                        
                     }} 
-                            className='btn btn-outline-danger mt-2 mb-2'>
+                            className='btn btn-outline-danger mt-2 mb-2 ml-2 mr-2'>
                     Remover
                 </button>
             )

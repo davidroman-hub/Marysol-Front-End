@@ -238,14 +238,14 @@ const showError = () => {
 const showSuccess = () => {
     return(
         <div className='alert alert-info' style={{display:createdProduct ? '' : 'none'}}>
-            <h2>{`${createdProduct}`} is updated!</h2>
+            <h2>{`${createdProduct}`} ha sido actualizado!</h2>
         </div>
     )
 }
 
 const showLoading = () => {
     return(
-        loading && (<div className='alert alert-success'> Loading...</div>)
+        loading && (<div className='alert alert-success'> Cargando...</div>)
     )
 }
 

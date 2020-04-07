@@ -117,6 +117,10 @@ const showOrdersDisplay = () => {
                             <li className='list-group-item'>Creado el: {o.createdAt}</li>
                             <li className='list-group-item'>Dirección: {o.address}</li>
                             <li className='list-group-item'>Telefono:{o.number} </li>
+                            <li className='list-group-item'>Email del cliente:{o.client_email} </li>
+                            <li className='list-group-item'>Nombre:{o.client_name} </li>
+                            <li className='list-group-item'>Telefono:{o.client_phone} </li>
+                            <li className='list-group-item'>ID cliente:{o.client_id} </li>
                             <h3 className='mt-4 mb-4 font-italic'>
                                 Total de productos en la orden:{o.products.length}
                             </h3>
@@ -128,7 +132,7 @@ const showOrdersDisplay = () => {
                                     {showInput('Nombre del product:', p.name)} 
                                     {showInput('Precio del producto $:', p.price)}  
                                     {showInput('Cantidad pedida del producto:', p.count)}  
-                                    {showInput('Nombre del producto:', p._id)}   
+                                    {showInput('ID del producto:', p._id)}   
 
                                 </div>
                             ))}

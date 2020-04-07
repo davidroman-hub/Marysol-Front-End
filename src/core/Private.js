@@ -78,7 +78,7 @@ const loadProfile = () => {
                 console.log('PROFILE USER UPDATE SUCCESS', response);
                 updateUser(response, () => {
                     setValues({ ...values, buttonText: 'Submitted' });
-                    toast.success('PROFILE UPDATED SUCCESFULLY');
+                    toast.success('Perfil actualizado con éxito');
                 })  
             })
             .catch(error => {
