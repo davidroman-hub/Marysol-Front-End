@@ -44,7 +44,7 @@ const Cart = () => {
     }
 
     const notItemMessage = () => (
-        <h4>Tu carrito esta vacío.<br/> <Link to='/menu'>Continua Comprando</Link></h4>
+        <h4 className='text-center'>Tu carrito esta vacío. <br/> <Link to='/menu'>Continua Comprando</Link></h4>
     )
 
    
@@ -54,7 +54,7 @@ const Cart = () => {
     <Layout >
 
     <div className='container-card-product'>
-        <div className='product-card'>
+        <div className='text-center'>
             {item.length > 0 ? showItem(item) : notItemMessage()}
         </div>
 
@@ -66,7 +66,7 @@ const Cart = () => {
          <p className="text-center">Los detalles de tus platillos como condimentos, catsup, cilantro, etc.. seran preguntados en la llamada </p>     
          <h3 className='text-center'>Recuerda Actualizar tu información!</h3>   
          <h5 className="text-center">Si no lo has hecho <Link to='user/private'>Actualiza aquí</Link></h5>
-        <p className="text-center">Si ya actualizaste no hagas nada y solo da Click en Ordenar! Gracias por tu preferencia</p>
+        <p className="text-center">Si ya actualizaste no hagas nada y solo da Click en Ordenar! Gracias por tu preferencia.</p>
         {/* <Checkout product={item}/> */}
         
         <Checkout product={item} setRun={setRun} run={run}/>

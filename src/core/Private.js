@@ -18,6 +18,8 @@ const Private = ({history}) => {
         email: '',
         phone:'',
         password: '',
+        address: '',
+        address2:'',
         buttonText: 'Actualizar'
     });
 
@@ -39,8 +41,8 @@ const loadProfile = () => {
     })
     .then(response=>{
         console.log('profile update', response) //<-- populate state
-        const {role, name ,phone, email} = response.data
-        setValues({...values, role, name,phone,email})
+        const {role, name ,phone, email,address,address2} = response.data
+        setValues({...values, role, name,phone,email,address,address2})
     })
     .catch(error => {
         console.log('PRofile update error', error.response.data.error)
@@ -54,7 +56,7 @@ const loadProfile = () => {
 
 
 
-    const { role, name, email, phone ,password, buttonText } = values;
+    const { role, name, email, phone ,password,address,address2,buttonText } = values;
 
     const handleChange = name => event => {
         // console.log(event.target.value);
@@ -72,7 +74,7 @@ const loadProfile = () => {
             headers:{
                 Authorization:`Bearer ${token}`,
             },
-            data: {name,phone,password}
+            data: {name,phone,address,address2,password}
         })
             .then(response => {
                 console.log('PROFILE USER UPDATE SUCCESS', response);
@@ -110,6 +112,14 @@ const loadProfile = () => {
                 <label className="text-muted">Telefono:</label>
                 <input onChange={handleChange('phone')} value={phone} type="text" className="form-control" />
             </div>
+            <div className="form-group">
+                <label className="text-muted">Dirección:</label>
+                <input onChange={handleChange('address')} value={address} type="text" className="form-control" />
+            </div>
+            {/* <div className="form-group">
+                <label className="text-muted">Dirección 2:</label>
+                <input onChange={handleChange('address2')} value={address2} type="text" className="form-control" />
+            </div> */}
 
             <div className="form-group">
                 <label className="text-muted">Contraseña</label>

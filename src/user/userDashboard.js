@@ -72,9 +72,9 @@ const purchaseInfo = (historyP) => {
                                 <h2 className='mt-2' >Total de la orden $: {h.amount}</h2>
                                 <h3 style={{color:'red'}}>ID orden:{h._id}</h3>
                                 <h4 style={{color: 'orange'}}>Estatus de la orden:{h.status}</h4>
-                                <h6>Ordenado por: {h.name}</h6>
-                                <h6>Telefono de contacto: {h.number}</h6>
-                                <h6>Dirección de envio: {h.address}</h6>
+                                <h6>Ordenado por: {h.client_name}</h6>
+                                <h6>Telefono de contacto: {h.client_phone}</h6>
+                                <h6>Dirección de envio: {h.client_address}</h6>
                                 <h6>
                                      Comprado el dia:{" "}
                                     {h.createdAt}                                                    

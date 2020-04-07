@@ -134,6 +134,8 @@ const buy = (event) => {
         name:names,
         client_email:isAuth().email,
         client_name:isAuth().name,
+        client_address:isAuth().address,
+        client_address2:isAuth().address2,
         client_phone:isAuth().phone,
         client_id:isAuth()._id,
         amount:getTotal(product),
