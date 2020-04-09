@@ -1,0 +1,86 @@
+
+$beige: rgb(245, 245, 237);
+
+
+.Menu-container{
+  background-color:$beige;
+}
+
+
+
+.capital{
+  font-family:'Oswald', sans-serif;
+  color:red;
+  font-size:70px
+}
+
+.card-menu-des{
+  display: flex;
+  justify-content:center;
+  flex-wrap: wrap;
+ //margin-left:50px;
+
+  @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+    margin-top: 20px;
+    // flex-direction: column;
+    // text-align: center;
+    // justify-content: center
+   
+}
+
+}
+
+
+.menu-card {
+  /* Add shadows to create the "card" effect */
+ // box-shadow: 0 4px 8px 0 rgba(131, 27, 27, 0.1);
+  transition: 0.3s;
+  width: 300px;
+  align-items: center;
+  margin: 15px;
+  margin-left: 50px ;
+ //background-color:white;
+  border-radius:5px;
+  border:none;
+  
+
+ 
+ 
+  //margin-bottom: 15px;
+  
+  
+  
+  @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+            
+    display: flex;
+    flex-direction: column;
+
+    //align-items: center;
+   justify-content: center;
+     //margin-left: 65px;
+    // margin-right: 10px;
+    border: 2px;
+    margin-bottom: 15px;
+    width: 280px;
+}
+
+}
+
+/* On mouse-over, add a deeper shadow */
+.menu-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.menu-card-container {
+  padding: 2px 16px;
+  
+}
+
+.price{
+font-family: georgia;
+letter-spacing: 0.6px;
+line-height: 1.4;
+padding-bottom: 4px;
+font-size: 12px;
+}

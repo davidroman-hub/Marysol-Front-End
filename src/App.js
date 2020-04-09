@@ -4,15 +4,16 @@ import {Link} from 'react-router-dom'
 import Map from './GoogleMap'
 import Footer from './Footer'
 import {getProducts} from '../src/admin/apiAdmin'
+import Photos2 from './Photos'
 // Photos
 
 import logo1 from './img/logo1.png'
-import vuelve from './img/vuelve.jpg'
+import vuelve from './img/quesadilla.jpg'
 import slider3 from './img/tostadaP.jpg'
 import slider2 from './img/salmon.jpg'
 import slider1 from './img/paella.jpg'
 import banner from './img/banner.jpg'
-import service from './img/servicio.jpg'
+import service from './img/bruja.jpg'
 import Card from './admin/Card'
 //styles
 import './App.scss'
@@ -23,6 +24,7 @@ window.addEventListener('scroll', () => {
   const header = document.getElementById('header-content');
     header.style.opacity = '1'- window.pageYOffset / 650;})
 
+    
 
 
 
@@ -72,8 +74,8 @@ useEffect(()=>{
 
   return (
     <Fragment>
-    
-                <header className="header-content" id="header-content">
+         
+                <header className="header-content "  id="header-content">
                     <div className="header-text">   
                       <p className='Logo1'>
                         <img alt='Logo1' height="300px" src={logo1}/>
@@ -113,30 +115,31 @@ useEffect(()=>{
                                     <h4 className="card-title">El auténtico sabor Jarocho</h4>
                                   
                                     <p className="card-text">Traemos el sabor de la cocina Veracruzana a tu paladar, con las especialidades del
-                                      Puerto de Veracruz, como son: El Vuelve a la vida, Tostadas de Pulpo, arroz a la tumbada entre otros..
+                                      Puerto de Veracruz, como: Vuelve a la vida, Tostadas de Pulpo, Arroz a la tumbada entre otros..
                                     </p>
                                     <hr/>
                                     <Link to='/menu' className="btn btn-dark">Menu</Link>
                                 </div>
                               </div>
                             </div>
+                      
                                   {/* banner finished*/}       
                                   <br/>
                                   <br/>
                                   <hr/>
                                   <h1 className=" h2-subtitle">
-                               Que es este nuevo concepto?
+                               Qué es este nuevo concepto?
                                 </h1>
                                 <div className="About-container">
                                     <div className="about-concept">
-                                      <img alt='excelente servicio' height="177px" src={service}/>
+                                      <img alt='excelente servicio' height="250px" src={service}/>
                                     </div>
                                     <hr/>
                                     <div className="about-us-des">
                                       <br/>
                                       <span className="capital-letter">M</span>ar y Sol<br/> 
-                                        no es solo una página ordinaria donde podrás ver nuestro Menu, es una plataforma entera, con la cual podrás registrate
-                                        y ordenar productos desde la comodidad de tu hogar con entrega a domicilio en un radio de 5km a la redonda, podras hacer reservaciones Vía telefónica.
+                                        no es solo una página ordinaria donde podrás ver nuestro Menu, es una plataforma entera, con la cual podrás regístrarte
+                                        y ordenar productos desde la comodidad de tu hogar con entrega a domicilio en un radio de 5km. Podrás hacer reservaciones Vía telefónica.
                                         Te invitamos a que te registres para conocer las características de nuestra plataforma.
                                         <br />
                                         <Link to="/signin">Registrate</Link>

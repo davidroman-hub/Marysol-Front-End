@@ -31,6 +31,7 @@ import Menu from './core/Shop'
 import App from './App'
 import Product from './core/Product'
 import Cart from './core/Cart'
+import MenuDes from './Menu-des'
 
 
 const Routes = () => {
@@ -51,6 +52,7 @@ return (
                 <Route exact path="/menu" component={Menu}/>
                 <Route exact path="/product/:productId" component={Product}/>
                 <Route exact path="/cart" component={Cart}/>
+                <Route exact path="/menu/photo" component={MenuDes}/>
                 {/* /// User Routes// */}
 
                 <PrivateRoute exact path="/user/private" component={Private}/>

@@ -134,11 +134,11 @@ const handleFilters = (filters, filterBy) => {
           {JSON.stringify(categories)}
           </div> */}
           <div className="shop-container">
-          <h1 className="mb-4 text-center">Nuestro Menu</h1>
+          <h1 className="mb-4 text-center">Nuestro Menú</h1>
 
                         <div className="About-shop-container">
                             <div className="about-us">
-                            <h4>Filtrar Por Categorias</h4>
+                            <h4>Filtrar Por Categorías</h4>
                             <Checkbox categories={categories}
                                   handleFilters={ filters => 
                                     handleFilters(filters,'category')}
@@ -147,7 +147,7 @@ const handleFilters = (filters, filterBy) => {
                             <hr/>
                        
                             <div className="shop-us-des">
-                            <h4>Filtrar por precios</h4> 
+                            <h4>Filtrar por Precios</h4> 
                                           <RadioBox 
                                  className='box'         
                                 prices={prices}

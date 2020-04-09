@@ -35,13 +35,30 @@ const isActive = path => {
                             Nosotros
                         </Link>
                     </li>
+                    <li className='icon'> 
+                        <Link className="nav-link fas fa-utensils icon" 
+                            style={isActive('/cart')} 
+                            to="/cart">{""}
+                        
+                            <sup>
+                                <small className="cart-badge">
+                                {itemTotal()}
+                                </small>
+                            </sup>              
+                        </Link>
+                    </li>
                     <li className="nav-item">
                         <Link to='/menu' className=" nav-link" style={isActive('/menu')}>
                             {/* home / {JSON.stringify(history)}     */}
-                            Menu
+                            Ordene
                         </Link>
                     </li>
-                        
+                    <li className="nav-item">
+                        <Link to='/menu/photo' className=" nav-link" style={isActive('/menu/photo')}>
+                            {/* home / {JSON.stringify(history)}     */}
+                            Menú
+                        </Link>
+                    </li>
                  
                   
 
@@ -91,22 +108,11 @@ const isActive = path => {
                                     signout(()=>{
                                         history.push('/')
                                     })
-                                }}>Sign out</span>
+                                }}>Cerrar Sesión</span>
                         </li>                 
                       
                 )}
-                  <li className='icon'> 
-                        <Link className="nav-link fas fa-utensils icon" 
-                            style={isActive('/cart')} 
-                            to="/cart">{""}
-                        
-                            <sup>
-                                <small className="cart-badge">
-                                {itemTotal()}
-                                </small>
-                            </sup>              
-                        </Link>
-                    </li>
+                  
                     </div>
                 </div>
         </ul>
