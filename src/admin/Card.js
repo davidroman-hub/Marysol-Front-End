@@ -31,7 +31,7 @@ const Card = ({product}) => {
                 <h4 className="text-center">{product.name}</h4>
                 {/* <p className="text-center">{product.description}</p> */}
                 <br/>
-                <p className="text-center">${product.price}</p>
+                <p className="font-card text-center">${product.price}</p>
                 <Link to={`/product/${product._id}`}>
                     <button className="btn btn-dark ml-2 mb-2" >
                         Descripción 

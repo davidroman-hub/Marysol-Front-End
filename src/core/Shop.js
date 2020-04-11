@@ -135,7 +135,22 @@ const handleFilters = (filters, filterBy) => {
           </div> */}
           <div className="shop-container">
           <h1 className="mb-4 text-center">Nuestro Menú</h1>
-
+                        <div className="text-center">
+                          <p>Bienvenidos a nuestra Sección de Ordenes!</p>
+                          <p>Aquí podras seleccionar los platillos de tu agrado y la cantidad de los mismos.<br/>
+                          Al final de tu orden tendras que ir a tu carrito
+                          </p>
+                          <strong><p>OJO! Los pagos son a contra entrega! <br/>
+                          Las ordenes de los pedidos tendran 2 opciones: La primera recogerla en el Restaurante ó <br/>
+                          Envío a Domicilio. 
+                          </p></strong>
+                          <p>Estas son los lugares donde el envío a Domicilio esta disponible: <br/>
+                          -Colonia San Rafael CDMX -Colonia Juárez CDMX -CUAUHTEMOC CDMX -Anáhuac 1RA Y 2DA Sección<br/>
+                          -Anzures CDMX -Sta María la Rivera CDMX -Popotla CDMX -Santo Tomás CDMX -Atlampa CDMX -Mariano Escobedo CDMX -Tlaxpana CDMX<br/>
+                          -Tlatilco CDMX -Agricultura CDMX
+                          </p>
+                          <p>De no ser que tu colonia no aparezca, no importa ya que puedes recoger tu pedido directamente en el Restaurante y puedes realizar tu pedido usando la plataforma.</p>
+                        </div>
                         <div className="About-shop-container">
                             <div className="about-us">
                             <h4>Filtrar Por Categorías</h4>
