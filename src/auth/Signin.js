@@ -93,7 +93,8 @@ const Signin = ({history}) => {
                 {signinForm()}
                 <hr/>
                 <div>
-                     <Link className='text-muted' to='/auth/password/forgot' >Olvidaste tu contraseña?</Link>
+                     <Link className='text-muted' to='/auth/password/forgot' >Olvidaste tu contraseña?</Link><br/>
+                     <Link className='text-muted' to='/aviso-privacidad' >Al registrarte aceptas el aviso de PRIVACIDAD</Link>
                 </div>
             </div>
         </Layout>

@@ -78,7 +78,8 @@ const Signup = () => {
                 {signupForm()}
                 <hr/>
                 <div>
-                     <Link className='text-muted' to='/signin' >Ya tienes cuenta?</Link>
+                     <Link className='text-muted' to='/signin' >Ya tienes cuenta?</Link><br/>
+                     <Link className='text-muted' to='/aviso-privacidad' >Al registrarte aceptas el aviso de PRIVACIDAD</Link>
                 </div>
             </div>
         </Layout>

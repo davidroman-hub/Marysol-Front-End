@@ -140,6 +140,9 @@ const loadProfile = () => {
                 <ToastContainer />
                 <h1 className="p-5 text-center">Actualización de mis datos</h1>
                 {updateForm()}
+                <hr/>
+                <Link className='text-muted' to='/aviso-privacidad' >Aviso de PRIVACIDAD</Link>
+                <hr/>
             </div>
         </Layout>
     );

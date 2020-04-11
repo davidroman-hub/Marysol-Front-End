@@ -32,7 +32,7 @@ import App from './App'
 import Product from './core/Product'
 import Cart from './core/Cart'
 import MenuDes from './Menu-des'
-
+import Privacity from './core/Privacity'
 
 const Routes = () => {
 
@@ -53,6 +53,7 @@ return (
                 <Route exact path="/product/:productId" component={Product}/>
                 <Route exact path="/cart" component={Cart}/>
                 <Route exact path="/menu/photo" component={MenuDes}/>
+                <Route exact path="/aviso-privacidad" component={Privacity}/>
                 {/* /// User Routes// */}
 
                 <PrivateRoute exact path="/user/private" component={Private}/>
