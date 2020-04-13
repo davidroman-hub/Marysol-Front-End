@@ -35,6 +35,21 @@ const isActive = path => {
                             Nosotros
                         </Link>
                     </li>
+                    <li className="nav-item">
+                        <Link to='/menu/photo' className=" nav-link" style={isActive('/menu/photo')}>
+                            {/* home / {JSON.stringify(history)}     */}
+                            Menú
+                        </Link>
+                    </li>
+                    
+                
+                    <li className="nav-item">
+                        <Link to='/menu' className=" nav-link" style={isActive('/menu')}>
+                            {/* home / {JSON.stringify(history)}     */}
+                            Ordene
+                        </Link>
+                    </li>
+                  
                     <li className='icon'> 
                         <Link className="nav-link fas fa-utensils icon" 
                             style={isActive('/cart')} 
@@ -47,20 +62,8 @@ const isActive = path => {
                             </sup>              
                         </Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to='/menu' className=" nav-link" style={isActive('/menu')}>
-                            {/* home / {JSON.stringify(history)}     */}
-                            Ordene
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to='/menu/photo' className=" nav-link" style={isActive('/menu/photo')}>
-                            {/* home / {JSON.stringify(history)}     */}
-                            Menú
-                        </Link>
-                    </li>
                  
-                  
+                  <div className="spacer"/>
 
                 {!isAuth () && (
                     <Fragment>

@@ -48,3 +48,10 @@ li{
 li{
     list-style: none;
 }
+
+.spacer{
+    width:750px;
+    @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
+       width:0px
+  }
+}
