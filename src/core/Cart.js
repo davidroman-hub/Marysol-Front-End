@@ -66,6 +66,13 @@ const Cart = () => {
          <p className="text-center">
          <h6>PAGARAS AL RECIBIR TU PEDIDO..</h6>
          <p>En efectivo o con tarjeta tu decides!</p>
+         {/* <p>Estas son los lugares donde el envío a Domicilio esta disponible: <br/>
+                          -Colonia San Rafael CDMX -Colonia Juárez CDMX -CUAUHTEMOC CDMX -Anáhuac 1RA Y 2DA Sección<br/>
+                          -Anzures CDMX -Sta María la Rivera CDMX -Popotla CDMX -Santo Tomás CDMX -Atlampa CDMX -Mariano Escobedo CDMX -Tlaxpana CDMX<br/>
+                          -Tlatilco CDMX -Agricultura CDMX
+                          </p> */}
+            <p>De no ser que tu colonia no aparezca para el envio a Domicilio, no importa ya que puedes recoger tu pedido directamente en el Restaurante y puedes realizar tu pedido usando la plataforma.</p>
+                         
          </p>
         {/* <Checkout product={item}/> */}
         

@@ -100,7 +100,7 @@ const loadProfile = () => {
 
             <div className="form-group" id="header-content">
                 <label className="text-muted">Nombre:</label>
-                <input onChange={handleChange('name')} value={name} type="text" className="form-control"  disabled/>
+                <input onChange={handleChange('name')} value={name} type="text" className="form-control" />
             </div>
 
             <div className="form-group">
@@ -108,14 +108,14 @@ const loadProfile = () => {
                 <input  defaultValue={email} type="email" className="form-control"  disabled/>
             </div>
            
-            <div className="form-group">
+            {/* <div className="form-group">
                 <label className="text-muted">Telefono:</label>
                 <input onChange={handleChange('phone')} value={phone} type="text" className="form-control" />
             </div>
             <div className="form-group">
                 <label className="text-muted">Dirección:</label>
                 <input onChange={handleChange('address')} value={address} type="text" className="form-control" />
-            </div>
+            </div> */}
             {/* <div className="form-group">
                 <label className="text-muted">Dirección 2:</label>
                 <input onChange={handleChange('address2')} value={address2} type="text" className="form-control" />
