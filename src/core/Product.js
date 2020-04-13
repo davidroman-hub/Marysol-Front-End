@@ -56,8 +56,14 @@ const Product = (props) => {
 
     return (
         <Layout>
-      
-                <div className="container-card-product">
+            {/* <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/> */}
+            <div className='spacer'/>
+                <div className="container-card-product ">
                 <h3 className="text-center">{product.name}</h3>
                             <div className="product-card">
                                

@@ -142,7 +142,7 @@ useEffect(()=>{
                                         y ordenar productos desde la comodidad de tu hogar con entrega a domicilio en un radio de 5km. Podrás hacer reservaciones Vía telefónica.
                                         Te invitamos a que te registres para conocer las características de nuestra plataforma.
                                         <br />
-                                        <Link to="/signin">Registrate</Link>
+                                        <Link to="/signup">Registrate</Link>
                                       </div>                
                                 </div>
                                   
@@ -154,6 +154,9 @@ useEffect(()=>{
                             <div className="Map-ps">
                              <Map/>
                             </div>
+                            <br/>
+                            <p className='text-center'>Reservaciones:</p>
+                            <p className='text-center'>Numero de contacto: 55-55-35-52-80 <i class="fab fa-whatsapp"></i></p>
                             <hr/>
                             {/* {JSON.stringify(productsBySell)}
                             <hr/>

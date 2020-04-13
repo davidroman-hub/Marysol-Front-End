@@ -20,7 +20,7 @@ const isActive = path => {
 
 
     const nav = () => (
-        <ul className="navbar navbar-expand-lg navbar-dark bg-dark text-center">
+        <ul className="navbar navbar-expand-lg navbar-dark bg-dark text-center ">
                 <Link className='nav-color' class="nav-link" to='/'>
                     <img alt='logo' width='80px' height='80px' src={Logo}/>
                 </Link>
