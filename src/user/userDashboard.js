@@ -153,7 +153,7 @@ const loadProfile = () => {
             
         <div className='card mb-5'>
             <h4 className='text-center'>Antes de Ordenar es importante actualizar tu información!!</h4>
-            <hr/>
+            <br/>
             <h5 className='text-center'>Necesitamos tu dirección de envío y tu telefono para poder contactarte!</h5>
             <li className='list-group-item'>
                 <Link to='/user/private' >Actualizar mi información</Link>
@@ -161,10 +161,10 @@ const loadProfile = () => {
         </div>
 
       
-        <div className='card mb-5'>
+        {/* <div className='card mb-5'>
               <h3 className='card-header'>Historial de mis Compras</h3> 
               {purchaseInfo(historyP)}
-        </div>
+        </div> */}
     </Layout>
    
     )
