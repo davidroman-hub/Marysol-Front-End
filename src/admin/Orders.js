@@ -113,14 +113,15 @@ const showOrdersDisplay = () => {
                                 </li>
                             <li className='list-group-item'>Total de la orden: ${o.amount}</li>
                             {/* <li className='list-group-item'>{o.transaction_id}</li> */}
-                            <li className='list-group-item'>ordenado por :{o.name}</li>
+                            <li className='list-group-item'>Detalles de la orden: {o.details}</li>
                             <li className='list-group-item'>Creado el: {o.createdAt}</li>
-                            <li className='list-group-item'>Dirección 1: {o.address}</li>
+                            <li className='list-group-item'>Colonia: {o.address}</li>
+                            <li className='list-group-item'>Dirección : {o.address2}</li>
                             <li className='list-group-item'>Dirección 2 (perfil): {o.client_address}</li>
-                            <li className='list-group-item'>Telefono en orden:{o.number} </li>
-                            <li className='list-group-item'>Telefono 2 (perfil):{o.client_phone} </li>
-                            <li className='list-group-item'>Email del cliente:{o.client_email} </li>
-                            <li className='list-group-item'>Nombre:{o.client_name} </li>                           
+                            <li className='list-group-item'>Telefono en orden: {o.number} </li>
+                            <li className='list-group-item'>Telefono 2 (perfil): {o.client_phone} </li>
+                            <li className='list-group-item'>E-mail del cliente: {o.client_email} </li>
+                            <li className='list-group-item'>Nombre del cliente: {o.client_name} </li>                           
                             <li className='list-group-item'>ID cliente:{o.client_id} </li>
                             <h3 className='mt-4 mb-4 font-italic'>
                                 Total de productos en la orden:{o.products.length}

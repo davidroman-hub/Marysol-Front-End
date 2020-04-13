@@ -60,13 +60,13 @@ const Cart = () => {
 
         <div >
          <h3 className='text-center'>Tu orden</h3>
-         <p className="text-center">Esta sección esta diseñada para pagos a contra entrega. </p> 
-         <p className="text-center">Lo que significa que pagaras en efectivo o con tu tarjeta a la hora de recibir tu pedido,</p>
         <strong><p className="text-center"> Recibirás una llamada por parte de nuestro Team y un E-mail confirmando tu orden. </p></strong>
-         <p className="text-center">Los detalles de tus platillos como condimentos, catsup, cilantro, etc.. seran preguntados en la llamada </p>     
-         <h3 className='text-center'>Recuerda Actualizar tu información!</h3>   
-         <h5 className="text-center">Si no lo has hecho <Link to='user/private'>Actualiza aquí</Link></h5>
-        <p className="text-center">Si ya actualizaste no hagas nada y solo da Click en Ordenar! Gracias por tu preferencia.</p>
+         <p className="text-center">Si los detalles de tus platillos como condimentos, catsup, cilantro, etc.. no estan completos seran preguntados en la llamada </p>     
+         <p className="text-center">Esta sección esta diseñada para pagos a contra entrega.  </p> 
+         <p className="text-center">
+         <h6>PAGARAS AL RECIBIR TU PEDIDO..</h6>
+         <p>En efectivo o con tarjeta tu decides!</p>
+         </p>
         {/* <Checkout product={item}/> */}
         
         <Checkout product={item} setRun={setRun} run={run}/>

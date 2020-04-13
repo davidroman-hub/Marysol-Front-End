@@ -31,6 +31,7 @@ const Checkout = ({product, setRun = f => f, run = undefined, match}) => {
         amount:'',
         name:'',
         number:'',
+        address2:'',
         error:''
     })
 
@@ -40,6 +41,16 @@ const Checkout = ({product, setRun = f => f, run = undefined, match}) => {
     const token = getCookie('token')  //// <-- right one
     const Id = getCookie('token')  //// <-- right one
     
+
+
+/// address 2
+
+let deliveryAddress2 = data.address2
+const handleAddress2 =  event => {
+    setData({...data, address2:event.target.value})  
+}
+
+
 
 
     ///// handle the addresss /////
@@ -92,9 +103,12 @@ let numbers = data.number
                     onChange={handleName}
                     className='form-control'
                     value={data.name}
-                    placeholder='Detalles en tus pedidos? como condimentos extras o sin condimentos en tus platillos?:' />
+                    placeholder='Detalles en tus pedidos? Condimentos extras o sin condimentos en tus platillos?:' />
                 </div>
             </li>
+
+          
+
             <li className="nav-item">
             <div className="form-group">
             {/* <textarea
@@ -104,9 +118,8 @@ let numbers = data.number
                 placeholder='Escribe tu direccion de envio aqui C.P, calle, Ref, etc..' required/> */}
                 Dirección:
                 <select onChange={handleAddress}
-                className='form-control'
-                >
-                    <option >Porfavor seleciona</option>
+                className='form-control' required>
+                    <option value=''>Por Favor Selecciona</option>
                     <option value='Recoger-Resto'>Recoger en Restaurante</option>
                     <option value='Colonia-San-Rafael'>Colonia San Rafael CDMX</option>
                     <option value='Colonia Juárez CDMX'>Colonia Juárez CDMX</option>
@@ -124,6 +137,19 @@ let numbers = data.number
                 </select>
             </div>
             </li>
+            <li>
+            <div className="form-group">
+            <textarea
+                onChange={handleAddress2}
+                className='form-control'
+                value={data.address2}
+                placeholder='Tu calle, Número, C.P. Si escogiste recoger en restaurante pon RESTAURANTE ' required/>
+           </div>
+            </li>
+            <li className='text-center'>
+               <strong ><h7 className='text-center'>Revisa tus productos antes de ordenar!</h7></strong>
+            </li>
+            <br/>
             <li className="nav-item">
                 <button className="btn btn-success btn-block mr-b2" >Ordenar</button>
             </li>   
@@ -152,7 +178,7 @@ const buy = (event) => {
     const createOrderData ={ 
         products:product,
         number:numbers,
-        name:names,
+        details:names,
         client_email:isAuth().email,
         client_name:isAuth().name,
         client_address:isAuth().address,
@@ -160,7 +186,8 @@ const buy = (event) => {
         client_phone:isAuth().phone,
         client_id:isAuth()._id,
         amount:getTotal(product),
-        address:deliveryAddress
+        address:deliveryAddress,
+        address2:deliveryAddress2
 
     }
   
