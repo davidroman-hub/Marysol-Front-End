@@ -74,35 +74,56 @@ let numbers = data.number
             
         <div className="mb-2">
         
-            {/* <li className="nav-item">
+            <li className="nav-item">
                 <div className="form-group">    
                 <label className='text-muted'>Telefono: </label>
                     <input type="number"
                     onChange={handleNumber}
                     className='form-control'
                     value={data.number}
+                    placeholder='Solo Numeros'
                     required/>
                 </div>
             </li>
 
             <li className="nav-item">
                 <div className='form-group'>
-                <input type="text"
+                <textarea type="text"
                     onChange={handleName}
                     className='form-control'
                     value={data.name}
-                    placeholder='Nombre de quien hace la orden:' required/>
+                    placeholder='Detalles en tus pedidos? como condimentos extras o sin condimentos en tus platillos?:' />
                 </div>
             </li>
             <li className="nav-item">
             <div className="form-group">
-            <textarea
+            {/* <textarea
                 onChange={handleAddress}
                 className='form-control'
                 value={data.address}
-                placeholder='Escribe tu direccion de envio aqui C.P, calle, Ref, etc..' required/>
+                placeholder='Escribe tu direccion de envio aqui C.P, calle, Ref, etc..' required/> */}
+                Dirección:
+                <select onChange={handleAddress}
+                className='form-control'
+                >
+                    <option >Porfavor seleciona</option>
+                    <option value='Recoger-Resto'>Recoger en Restaurante</option>
+                    <option value='Colonia-San-Rafael'>Colonia San Rafael CDMX</option>
+                    <option value='Colonia Juárez CDMX'>Colonia Juárez CDMX</option>
+                    <option value='CUAUHTEMOC CDMX '>Colonia CUAUHTEMOC CDMX </option>
+                    <option value='Anáhuac 1RA Y 2DA Sección'>Anáhuac 1RA Y 2DA Sección</option>
+                    <option value='Anzures CDMX'>Anzures CDMX</option>
+                    <option value='Sta María la Rivera CDMX '>Sta María la Rivera CDMX </option>
+                    <option value='Popotla CDMX '>Popotla CDMX </option>
+                    <option value='Santo Tomás CDMX '>Santo Tomás CDMX </option>
+                    <option value='Atlampa CDMX'>Atlampa CDMX</option>
+                    <option value='Mariano Escobedo CDMX'>Mariano Escobedo CDMX</option>
+                    <option value='Tlaxpana CDMX'>Tlaxpana CDMX</option>
+                    <option value='Agricultura CDMX'>Agricultura CDMX</option>
+                    <option value='Tlatilco CDMX'>Tlatilco CDMX</option>
+                </select>
             </div>
-            </li> */}
+            </li>
             <li className="nav-item">
                 <button className="btn btn-success btn-block mr-b2" >Ordenar</button>
             </li>   
