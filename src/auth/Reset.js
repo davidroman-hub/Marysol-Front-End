@@ -10,7 +10,7 @@ const Reset = ({ match }) => { // props.match from react router doom
         name: '',
         token: '',
         newPassword:'',
-        buttonText: 'Reset password',
+        buttonText: 'Restaurar',
      
     });
 
@@ -48,7 +48,7 @@ const Reset = ({ match }) => { // props.match from react router doom
             .catch(error => {
                 console.log('RESET PASSWORD ERROR', error.response.data);
                 toast.error(error.response.data.error);
-                setValues({ ...values, buttonText: 'Try again' });
+                setValues({ ...values, buttonText: 'Intenta de nuevo' });
                
             });
     };
@@ -58,7 +58,7 @@ const Reset = ({ match }) => { // props.match from react router doom
 
             <div className="form-group">
                 <label className="text-muted"></label>
-                <input onChange={handleChange} value={newPassword} type="password" className="form-control" placeholder='Type New Password' required/>
+                <input onChange={handleChange} value={newPassword} type="password" className="form-control" placeholder='Escribe tu nueva contraseña' required/>
             </div>
 
             <div>
@@ -74,7 +74,7 @@ const Reset = ({ match }) => { // props.match from react router doom
             {/* {JSON.stringify(isAuth())} // the information of the local storage */}
             <div className="col-md-6 offset-md-3">
                 <ToastContainer />
-                    <h1 className="p-5 text-center">Hey {name}!!, type your New Password</h1>
+                    <h1 className="p-5 text-center">Hola {name}!!, Escribe tu nueva contraseña!</h1>
                 {resetPasswordForm()}
             </div>
         </Layout>

@@ -52,8 +52,8 @@ const Activate = ({match}) => {
 const activationLink = () => {
  return (
      <div className="text-center">
-        <h1 className="p-5">Hey {name}, Ready to activate your account?</h1>
-        <button className="btn btn-outline-primary" onClick={clickSubmit}>Activate Account</button>
+        <h1 className="p-5">Hey {name}, List@ para activar tu cuenta?</h1>
+        <button className="btn btn-outline-primary" onClick={clickSubmit}>Activar mi cuenta!</button>
     </div>
  )
 }
