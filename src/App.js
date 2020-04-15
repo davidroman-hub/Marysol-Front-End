@@ -156,7 +156,7 @@ useEffect(()=>{
                             </div>
                             <br/>
                             <p className='text-center'>Reservaciones:</p>
-                            <p className='text-center'>Numero de contacto: 55-55-35-52-80 <i class="fab fa-whatsapp"></i></p>
+                            <p className='text-center'>Número de contacto: 55-55-35-52-80 <i class="fab fa-whatsapp"></i></p>
                             <hr/>
                             {/* {JSON.stringify(productsBySell)}
                             <hr/>

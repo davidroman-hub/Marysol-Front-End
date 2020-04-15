@@ -152,9 +152,9 @@ const loadProfile = () => {
         </div>
             
         <div className='card mb-5'>
-            <h4 className='text-center'>Antes de Ordenar es importante actualizar tu información!!</h4>
+            {/* <h4 className='text-center'>Antes de Ordenar es importante actualizar tu información!!</h4> */}
             <br/>
-            <h5 className='text-center'>Necesitamos tu dirección de envío y tu telefono para poder contactarte!</h5>
+            {/* <h5 className='text-center'>Necesitamos tu dirección de envío y tu telefono para poder contactarte!</h5> */}
             <li className='list-group-item'>
                 <Link to='/user/private' >Actualizar mi información</Link>
             </li>

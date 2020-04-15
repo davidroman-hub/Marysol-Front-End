@@ -117,9 +117,9 @@ const showOrdersDisplay = () => {
                             <li className='list-group-item'>Creado el: {o.createdAt}</li>
                             <li className='list-group-item'>Colonia: {o.address}</li>
                             <li className='list-group-item'>Dirección : {o.address2}</li>
-                            <li className='list-group-item'>Dirección 2 (perfil): {o.client_address}</li>
+                            {/* <li className='list-group-item'>Dirección 2 (perfil): {o.client_address}</li> */}
                             <li className='list-group-item'>Telefono en orden: {o.number} </li>
-                            <li className='list-group-item'>Telefono 2 (perfil): {o.client_phone} </li>
+                            {/* <li className='list-group-item'>Telefono 2 (perfil): {o.client_phone} </li> */}
                             <li className='list-group-item'>E-mail del cliente: {o.client_email} </li>
                             <li className='list-group-item'>Nombre del cliente: {o.client_name} </li>                           
                             <li className='list-group-item'>ID cliente:{o.client_id} </li>
