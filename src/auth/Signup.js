@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Layout from '../core/Layout';
 import axios from 'axios';
-import {isAuth} from './helpers'
+import {isAuth, authenticate} from './helpers'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Google from './Google'
 import Facebook from './Facebook'
 
 
-const Signup = () => {
+const Signup = ({history}) => {
     const [values, setValues] = useState({
         name: '',
         email: '',
@@ -23,6 +23,15 @@ const Signup = () => {
         // console.log(event.target.value);
         setValues({ ...values, [name]: event.target.value });
     };
+
+
+    const informParent = response => {
+       
+        authenticate(response, () => {
+            isAuth() && isAuth().role === 'admin' ? history.push('/admin/dashboard') : history.push('/user/dashboard')
+          });
+    }
+
 
     const clickSubmit = event => {
         event.preventDefault();
@@ -75,6 +84,8 @@ const Signup = () => {
                 <ToastContainer />
                 {isAuth() ? <Redirect to='/'/> : null}
                 <h1 className="p-5 text-center">Registro</h1>
+                <Google informParent={informParent}/>
+                {/* <Facebook informParent={informParent}/> */}
                 {signupForm()}
                 <hr/>
                 <div>
