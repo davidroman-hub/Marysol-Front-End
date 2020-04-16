@@ -2,7 +2,7 @@
 import React, {useEffect,useState} from 'react';
 import Layout from './Layout'
 import { getCategories, getFilteredProducts} from './apiCore'
-
+import {Link} from 'react-router-dom'
 import Card from '../admin/Card'
 import Checkbox from './Checkbox'
 import RadioBox from './RadioBox'
@@ -136,12 +136,11 @@ const handleFilters = (filters, filterBy) => {
           <div className="shop-container">
           <h1 className="mb-4 text-center">Nuestro Menú</h1>
                         <div className="text-center">
-                          <p>Bienvenidos a nuestra Sección de Ordenes!</p>
-                          <p>Aquí podras seleccionar los platillos de tu agrado.<br/>
-                          Al final de tu orden tendras que ir a tu carrito
+                          <p>Bienvenidos a nuestra Sección de Órdenes!</p>
+                          <p>Aquí podrás seleccionar los platillos de tu agrado.<br/>
                           </p>
                           <strong><p>OJO! Los pagos son a contra entrega! <br/>
-                          Las ordenes de los pedidos tendran 2 opciones: La primera recogerla en el Restaurante ó <br/>
+                          Las órdenes de los pedidos tendrán 2 opciones: La primera recogerla en el Restaurante ó <br/>
                           Envío a Domicilio. 
                           </p></strong>
                           
@@ -170,6 +169,8 @@ const handleFilters = (filters, filterBy) => {
 
 
          
+                <hr/>
+                <h4>Cuando termines ve a tu carrito <Link to='/cart'>Orden</Link></h4>
                 <hr/>
               <div className="menu-coin">
                 
