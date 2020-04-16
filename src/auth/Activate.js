@@ -15,6 +15,16 @@ const Activate = ({match}) => {
      
     });
 
+
+    const [ redirect, setRedirect] = useState(false)
+   
+    const shouldRedirect = redirect => {
+        if (redirect){
+            return <Redirect to='/signin'/>
+        }
+    }
+
+
     useEffect(()=>{
         let token = match.params.token
         // decode the token
@@ -41,6 +51,8 @@ const Activate = ({match}) => {
                 console.log('ACTIVATION SUCCESS', response);
                 setValues({ ...values, show: false });
                 toast.success(response.data.message);
+                setRedirect(true);
+                alert('Cuenta Activada!')
             })
             .catch(error => {
                 console.log('ACTIVATION ERROR', error.response.data.error);
@@ -64,6 +76,7 @@ const activationLink = () => {
                 <ToastContainer />
                 {isAuth() ? <Redirect to='/'/> : null}
                 {activationLink()}
+                {shouldRedirect(redirect)}
             </div>
         </Layout>
     );
