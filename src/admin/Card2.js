@@ -59,11 +59,25 @@ const handleChange = productId => event => {
                     <option value={count}>3</option> 
                 </select> */}
     
-                 <input type="number"
+                 {/* <input type="number"
                  className="ml-4 mt-1"
                   max='10'
                   value={count} 
-                  onChange={handleChange(product._id)} />
+                  onChange={handleChange(product._id)} /> */}
+                  <select onChange={handleChange(product._id)}
+                className='form-control mr-3' valuerequired>
+                    <option value='' disabled>Por Favor Selecciona</option>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                    <option value='6'>6</option>
+                    <option value='7'>7</option>
+                    <option value='8'>8</option>
+                    <option value='9'>9</option>
+                    <option value='10'>10</option>           
+                </select>
             </div>
         </div>
         )
