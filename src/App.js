@@ -9,20 +9,20 @@ import Photos2 from './Photos'
 
 import logo1 from './img/logo1.png'
 import vuelve from './img/quesadilla.jpg'
-import slider3 from './img/tostadaP.jpg'
-import slider2 from './img/salmon.jpg'
-import slider1 from './img/paella.jpg'
+//import slider3 from './img/tostadaP.jpg'
+import slider2 from './img/bruja1.jpg'
+import slider1 from './img/pulpo2ç2.jpg'
 import banner from './img/banner.jpg'
-import service from './img/bruja.jpg'
+import service from './img/tostapul.jpg'
 import Card from './admin/Card'
 //styles
 import './App.scss'
 import './Home.scss'
 
 
-window.addEventListener('scroll', () => {
-  const header = document.getElementById('header-content');
-    header.style.opacity = '1'- window.pageYOffset / 650;})
+// window.addEventListener('scroll', () => {
+//   const header = document.getElementById('header-content');
+//     header.style.opacity = '1'- window.pageYOffset / 650;})
 
     
 
@@ -75,7 +75,7 @@ useEffect(()=>{
   return (
     <Fragment>
          
-                <header className="header-content "  id="header-content">
+                 <header className="header-content "  id="header-content">
                     <div className="header-text">   
                       <p className='Logo1'>
                         <img alt='Logo1' height="300px" src={logo1}/>
@@ -84,10 +84,10 @@ useEffect(()=>{
                          Más información desplazandose hacia abajo
                       </p>
                     </div>
-                </header>
+                </header> 
 
                  <main>
-                    <section className="container">
+                    <section className="container" id="header-content">
                         <hr/>
                         <h1 className=" h2-subtitle">
                         Bienvenidos a nuestro Restaurante
@@ -132,7 +132,7 @@ useEffect(()=>{
                                 </h1>
                                 <div className="About-container">
                                     <div className="about-concept">
-                                      <img alt='excelente servicio' height="250px" src={service}/>
+                                      <img alt='excelente servicio' height="230px" src={service}/>
                                     </div>
                                     <hr/>
                                     <div className="about-us-des">
@@ -177,7 +177,7 @@ useEffect(()=>{
 
 
 const CarouselMyS = () => (
-{/* <main id='main1'>
+ <main id='main1'>
     <div id="carouselExampleCaptions" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active"></li>
@@ -188,29 +188,30 @@ const CarouselMyS = () => (
             <div className='carousel-item active'>
             <img className='tres' src={slider1} class="d-block w-100" alt="slider 1"/>
                 <div className="carousel-caption d-none d-md-block">
-                <h5 id="resultados">Almejas Vivas</h5>
-                     <p id="resultados">Solo para paladares exigentes</p>
+                <h2 id="resultados">Cevicheria</h2>
+                <h2 id="resultados">Mar y Sol</h2>
+                     <p id="resultados">Bienvenidos</p>
                 </div>
             </div>
             <div className='carousel-item '>
              <img  className='tres' src={slider2} class="d-block w-100" alt="slider 1"/>
                 <div className="carousel-caption d-none d-md-block">
-                <h5 id="resultados">Mojarra Frita Ba;ada de salsa abanero</h5>
-                     <p id="resultados">Si lo tuyo es el picante esto es para ti</p>
+                <h5 id="resultados">Auténtica tradición desde hace 40 años</h5>
+                     
                 </div>
             </div>
-            <div className='carousel-item '>
+            {/* <div className='carousel-item '>
              <img  className='tres' src={slider3} class="d-block w-100" alt="slider 1"/>
                 <div className="carousel-caption d-none d-md-block">
                 <h5 id="resultados">Almejas Vivas</h5>
                      <p id="resultados">Solo para paladares exigentes</p>
                 </div>
-            </div>
+            </div> */}
         </div>
         
     </div>
     <Fragment>
-    <footer id="footer" className="pb-4 pt-4">
+    {/* <footer id="footer" className="pb-4 pt-4">
     <div className="conatiner">
       <div className="row text-center">
         <div className="col-12 col-lg">
@@ -224,9 +225,9 @@ const CarouselMyS = () => (
         </div>
       </div>
     </div>
-   </footer>
+   </footer> */}
     </Fragment>
-    </main> */}
+    </main> 
 )
 
 //const mapUrl = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_MAP_KEY}` 
@@ -237,6 +238,7 @@ const CarouselMyS = () => (
 const App = () => {
   return (
     <Layout>
+  {CarouselMyS()}
       {Home()}
       <hr/>
     
