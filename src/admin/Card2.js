@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import {Link,Redirect} from 'react-router-dom'
 import photo from './img_avatar.png'
 import './Card.scss'
-import ShowImage from '../ShowImage'
+import ShowImage2 from '../ShowImage2'
 import {updateItem, removeItem} from '../core/CartHelpers'
 
 const Card3 = ({product, 
@@ -95,7 +95,7 @@ const handleChange = productId => event => {
         <div className="card3">
             {/* <img src={photo} alt="avatar" style={{width:"100%"}} /> */}
             {/* {shouldRedirect(redirect)} */}
-            <ShowImage item={product} url='product' />
+            <ShowImage2 item={product} url='product' />
        
             <div className="card-container">
                 <h4 className="text-center">{product.name}</h4>

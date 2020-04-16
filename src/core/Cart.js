@@ -29,7 +29,10 @@ const Cart = () => {
             <div>
                 <h2>Tu orden tiene {`${item.length}` } platillos</h2>
                 <hr/>
-                {item.map((product,i)=>(
+                 <div className='menu-coin'>
+                    <div className='row'> 
+                 
+                    {item.map((product,i)=>(
                     <Card3 
                     key={i} 
                     product={product} 
@@ -39,6 +42,9 @@ const Cart = () => {
                     run={run}
                     />
                 ))}
+                        </div>
+                </div>
+                
             </div>
         )
     }
