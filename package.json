@@ -26,6 +26,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-toastify": "^5.5.0",
+    "sass": "^1.26.10",
     "supercluster": "^7.0.0",
     "swr": "^0.1.18"
   },

@@ -85,7 +85,7 @@ const Signup = ({history}) => {
                 {isAuth() ? <Redirect to='/'/> : null}
                 <h1 className="p-5 text-center">Registro</h1>
                 <Google informParent={informParent}/>
-                {/* <Facebook informParent={informParent}/> */}
+                <Facebook informParent={informParent}/>
                 {signupForm()}
                 <hr/>
                 <div>

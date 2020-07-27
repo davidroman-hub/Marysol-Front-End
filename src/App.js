@@ -89,7 +89,7 @@ useEffect(()=>{
                  <main>
                     <section className="container" id="header-content">
                         <hr/>
-                        <h1 className=" h2-subtitle">
+                        <h1 className=" h2-subtitle ">
                         Bienvenidos a nuestro Restaurante
                         </h1>
                         <div className="About-container">
