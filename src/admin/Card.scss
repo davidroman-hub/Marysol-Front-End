@@ -1,21 +1,31 @@
+
+.container-card-new{
+display: flex;
+justify-content: center;
+
+
+}
+
+
 .card1 {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 300px;
-    margin-left: 130px;
-    margin-right: 10px;
-    margin-bottom: 15px;
+    //  margin-left: 130px;
+      margin-right: 10px;
+     margin-bottom: 15px;
+    // flex-direction: row;
 
 
     @media (max-width: 769px){ /* es solo para que se vea en modo movil usuarios*/
             
-        display: flex;
+       // display: flex;
         flex-direction: column;
      //   align-items: center;
        //justify-content: center;
-        margin-left: 80px;
-        margin-right: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
         margin-bottom: 15px;
         width: 200px;
     }

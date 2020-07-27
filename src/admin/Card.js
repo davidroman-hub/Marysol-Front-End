@@ -10,7 +10,8 @@ const Card = ({product}) => {
     const [ redirect, setRedirect] = useState(false)
 
     const addToCart = () => {
-        addItem(product, setRedirect(true))
+        addItem(product, setRedirect(true));
+        alert(`Se ha agregado a la orden: ${product.name}`)
     }
 
     const shouldRedirect = redirect => {

@@ -163,7 +163,7 @@ useEffect(()=>{
                             {JSON.stringify(productsBySell)}
                             <hr/> */}
                               <h2 className="mb-4 text-center">Lo Más vendido</h2>
-                                  <div className='row'>
+                                  <div className='container-card-new row'>
                                       {productsBySell.map((products, i)=>(
                                       <Card key={i} product={products}/>
                                       ))}

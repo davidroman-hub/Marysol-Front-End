@@ -20,7 +20,7 @@ const isActive = path => {
 
 
     const nav = () => (
-        <ul className="navbar navbar-expand-lg navbar-dark bg-dark text-center ">
+        <ul className="navbar navbar-expand-lg navbar-dark bg-dark text-center sticky-top ">
                 <Link className='nav-color' class="nav-link" to='/'>
                     <img alt='logo' width='80px' height='80px' src={Logo}/>
                 </Link>
@@ -100,6 +100,15 @@ const isActive = path => {
                         </li>     
                 
                 )}
+                  {isAuth () && isAuth().role === "0"  && (
+
+                    <li className="nav-item">
+                        <Link className="nav-link" style={isActive('/user/dashboard')} to="/user/dashboard">
+                            {isAuth().name}
+                        </Link>    
+                    </li>     
+
+                    )}
               
 
                   {isAuth () && (

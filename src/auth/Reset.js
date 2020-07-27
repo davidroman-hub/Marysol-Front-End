@@ -43,7 +43,7 @@ const Reset = ({ match }) => { // props.match from react router doom
             .then(response => {
                 console.log('RESET PASSWORD SUCCESS', response);
               toast.success(response.data.message)
-                setValues({ ...values,buttonText:"Done"})
+                setValues({ ...values,newPassword:'',buttonText:"Done"})
             })
             .catch(error => {
                 console.log('RESET PASSWORD ERROR', error.response.data);

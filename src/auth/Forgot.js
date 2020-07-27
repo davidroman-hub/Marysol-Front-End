@@ -29,7 +29,7 @@ const Forgot = ({history}) => {
             .then(response => {
                 console.log('FORGOT PASSWORD SUCCESS', response);
               toast.success(response.data.message)
-                setValues({ ...values,buttonText:"Requested"})
+                setValues({ ...values, email:'',buttonText:"Requested"})
             })
             .catch(error => {
                 console.log('FORGOT PASSWORD ERROR', error.response.data);

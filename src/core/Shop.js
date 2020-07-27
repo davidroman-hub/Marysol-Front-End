@@ -148,10 +148,13 @@ const handleFilters = (filters, filterBy) => {
                         <div className="About-shop-container">
                             <div className="about-us">
                             <h4>Filtrar Por Categorías</h4>
+                            <ul  style={{maxHeight: '170px', overflow:'scroll'}}>
                             <Checkbox categories={categories}
                                   handleFilters={ filters => 
                                     handleFilters(filters,'category')}
+                                   
                                   />
+                                  </ul>
                             </div>
                             <hr/>
                        
@@ -174,7 +177,7 @@ const handleFilters = (filters, filterBy) => {
                 <hr/>
               <div className="menu-coin">
                 
-                  <div className="row">
+                  <div className="container-card-new row">
                   {filteredResults.map((product,i)=>(
                      <div key={i} >
                           <Card  product={product}/>
